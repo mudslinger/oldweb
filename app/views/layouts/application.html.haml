@@ -1,0 +1,44 @@
+!!! 5
+%html{lang:"ja",class:ctrl(self)}
+  %head
+    = stylesheet_link_tag("application",media: "all")
+    = javascript_include_tag("application")
+    = yield(:ext_js) if content_for?(:ext_js)
+    = csrf_meta_tags
+    =#render(:partial => "/layouts/meta")
+    =#render(:partial => "/layouts/ext_load")
+    %title=title(self)
+    :javascript
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    :javascript
+      var pageTracker = _gat._getTracker("UA-3359034-1");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+
+  %body
+    #xcenter
+      #dscbox
+        .sc3
+          .sc2
+            .sc1
+              #center
+                #scbox
+                  .sc3
+                    .sc2
+                      .sc1
+                        #title
+                          =link_to image_tag64("logo01.gif",:id=>"logo",:alt=>"山岡家"),:controller=>"top",:action=>"index"
+                          #toplink
+                            - if ctrl(self) == 'top'
+                              = #link_to "山岡家HPについて",:action=>"about" ,:controller =>"site"
+                              = #link_to "サイトマップ",:action=>"sitemap" ,:controller =>"site"
+                          #flash
+                            =render(:partial => "/#{ctrl(self)}/title")
+                          =render(:partial => "/layouts/menu")
+                  .bd
+                    =content_for?(:layout_inner) ? yield(:layout_inner) : yield
+                  =render(:partial => "/layouts/foot_navi")
+                #foot
+                  Copyright #{Date.today.year} Maruchiyo YAMAOKAYA Corp. All Rights Reserved.
+      = render(:partial => "/layouts/tab")

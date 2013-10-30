@@ -1,0 +1,176 @@
+<div id="widearea">
+  <h1 class="sd">会社概要</h1>
+<dl>
+  <dt>社名</dt>
+  <dd>
+    株式会社丸千代山岡家
+  </dd>
+  <dd>
+    Maruchiyo Yamaokaya Corporation 
+  </dd>
+  <dt>所在地</dt>
+  <dd>
+    札幌本社
+    <br />
+    <%=link_to("〒007-0827 北海道札幌市東区東雁来7条1丁目4-19",
+    "https://maps.google.co.jp/maps?q=北海道札幌市東区東雁来7条1丁目4-19",:popup => true)%>
+  </dd>
+  <dd>
+    関東事務所
+    <br />
+    <%=link_to("〒305-0034 茨城県つくば市小野崎127-1",
+    "https://maps.google.co.jp/maps?q=茨城県つくば市小野崎127-1",:popup => true)%>
+  </dd>
+  <dt>設立</dt>
+  <dd>
+    平成5年3月8日
+  </dd>
+  <dt>資本金</dt>
+  <dd>
+    2億9,164万7千円
+  </dd>
+  <dt>従業員数</dt>
+  <dd>
+    1,921名(うち 正社員260名) （2013年1月31日現在）
+  </dd>
+  <dt>役員（2013年4月25日現在）</dt>
+  <dd>
+    代表取締役社長 山岡 正
+  </dd>
+  <dd>
+    専務取締役 一由 聡
+  </dd>
+  <dd>
+    取締役 成田 弘之
+  </dd>
+  <dd>
+    監査役 津田 憲澄
+  </dd>
+  <dd>
+    監査役 田中 東洋治
+  </dd>
+  <dd>
+    監査役 斉藤 世司典
+  </dd>
+  <dt>取引銀行</dt>
+  <dd>
+    北海道銀行
+  </dd>  
+  <dd>
+    三菱東京UFJ銀行
+  </dd>
+  <dd>
+    常陽銀行
+  </dd>
+  <dd>
+    みずほ銀行
+  </dd>
+  <dd>
+    三井住友銀行　他（順不同）
+  </dd>
+  <dt>年商</dt>
+  <dd>
+    8,909百万円（平成25年 1月期）
+  </dd>
+  <dt>売上・経常利益の推移</dt>
+  <dd>
+  <table class="graph" summary="売上・経常利益の推移">
+    <col width="100" />
+    <col width="*" />
+	<%i=0%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="profit" style="width:60px;float:right;text-align:center;">経常利益</div>
+          <div class="sales" style="width:60px;float:right;text-align:center;">売上高</div>
+          <div  style="width:80px;float:right;text-align:center;">（単位:千円）</div>
+          
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</dd>
+</dl>
+</div>
+<div id="narrowarea">
+    <%=render(:partial => "/#{@ctrl}/sidemenu")%>
+</div>

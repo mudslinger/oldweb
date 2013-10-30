@@ -1,0 +1,35 @@
+<div class="box">
+  <div class="wakutop"></div>
+  <div class="wakumiddle">
+    <div class="wakuinner">
+        <div class="capt"><span>▼</span>住所一覧から検索</div>
+        <div class="capt">プルダウンメニューから選択してください</div>
+        <select name="area" onchange="areachange(this.value)" id="area">
+          <option label="--- 地域・都道府県を選択してください ---" value="all">--- 地域・都道府県を選択してください ---</option>
+          <%@areas.each{|a|%>
+            <option style="border-bottom:solid 1px #EFEFEF;color:#<%=a.color%>;background-color:#<%=a.bg_color%>;" label="<%=a.name%>" value="<%=a.code%>" <%=((a.code == @area_belongs) ? "selected=\"true\" " : "")%>><%=a.name%></option>
+          <%}%>
+        </select>
+        <div class="capt"><span>▼</span>所在地で検索（例：旭川市・富士駅）</div>
+        <div style="width:80%;float:left"><input type="text" name="addr" id="addr" /></div>
+        <div style="width:20%;float:left"><button onclick="return sch()">検索</button></div>
+        <div class="capt">※所在地より半径30km未満の店舗を表示します</div>
+
+    </div>
+    <div class="wakuinner">
+      <div class="capt"><span>▼</span>検索結果（店名をクリックしてください）</div>      
+      <dl style="height:180px;overflow-y:scroll;overflow-x:hidden;border:inset 1px #cccccc;">
+      <%@shops.each{|d|%>
+        <dt style="display:none;" id="t<%=d.id%>">
+            <%=link_to d.name,{:action=>"shop",:id=>d.id},{:id=>"a"+d.id.to_s,:name=>"a"+d.id.to_s}%>
+            &nbsp;<span style="color:#00AA11">(TEL:<%=d.phone%>)</span>
+        </dt>
+      <%}%>
+      <dt id="t999999" style="display:none;">&nbsp</dt>
+    </dl>
+
+    </div>
+    
+  </div>
+  <div class="wakubottom"></div>
+</div>

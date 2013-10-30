@@ -1,0 +1,209 @@
+html.ir{
+  div#narrowarea{
+      float:left;
+      border:none;
+      width:205px;
+  }
+  div#widearea{
+      float:right;
+      border:none;
+      width:530px;
+  }
+  dl{
+     margin-left:20px;
+  }
+  dt{
+      background-color:#EAEAEA;
+      background-image:asset-data-url("hnt.jpg");
+      border-bottom:solid 2px #0066FF;
+      color:#333333;
+      font-size:12px;
+      padding:3px;
+      font-weight:bold;
+  }
+  dd{
+      color:#333333;
+      margin:0px 0px 0px 20px;
+      line-height:16px;
+      border-bottom: dotted 1px #AAAAAA;
+      vertical-align:baseline;
+      padding:5px 3px 8px 2px;
+  }
+
+  a.sidemenu div{
+      background-color:#555555;
+      border:outset 1px #0066FF;
+      color:#FFFFFF;
+      padding:10px;
+      margin:6px;
+      overflow:visible;
+      cursor:pointer;
+      text-align:left;
+      background-image:asset-data-url("ir/bindicator.gif");
+      background-position:right;
+      background-repeat:no-repeat;
+      text-decoration:none;
+  }
+  a.sidemenu:hover div{
+      background-color:#AAAAAA;
+      border:inset 1px #0066FF;
+  }
+  h1{
+      position:relative;
+      font-size:18px;
+      margin:10px 0px 10px 0px;
+      border-left:solid 24px #0066FF;
+      background-color:#EAEAEA;
+      background-image:asset-data-url("hn.jpg");
+      font-weight:bold;
+      color: #333333;
+      padding:5px;
+      span {
+        color: #333333;
+        display: block;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+      }
+  }
+  h2{
+      position:relative;
+      font-size:13px;
+      margin:5px 0px 5px 20px;
+      background-color:#EAEAEA;
+      background-image:asset-data-url("hn.jpg");
+      border-bottom:solid 2px #0066FF;
+      font-weight:bold;
+      color: #333333;
+      padding:2px;
+      lib{
+        margin-left:0px;
+      }
+  }
+  p{
+      margin-left:20px;
+      line-height:20px;
+  }
+  table.history{
+      margin-left:20px;
+      border:none;
+      border-collapse:collapse;
+      table-layout:fixed;
+      color:#333333;
+      width:100%;
+      td,th{
+        border-bottom:dotted 1px #555555;
+        line-height:18px;
+      }
+      th{
+        background-color:#EEEEEE;
+        border-right:solid 1px #FF6600;
+        text-align:center;
+      }
+      td{
+        padding-left:10px;
+      }
+  }
+
+  table.graph{
+      width:100%;
+      table-layout:fixed;
+      border-collapse:collapse;
+      th,td{
+        border-bottom:dotted 1px #FF6600;
+        border-top:dotted 1px #FF6600;
+      }
+      th{
+        background-color:#DDDDDD;
+        text-align:center;
+        font-weight:normal;
+        color:#222222;
+      }
+      tfoot{
+        td{
+          text-align:right;
+          color:#444444;
+          border:none;
+        }
+      }
+      div{
+        text-align:right;
+        padding:3px;
+        margin-bottom:0px;
+        font-size:11px;
+        height:15px;
+        color:#000000;
+      }
+      div.sales{
+        background-image:asset-data-url("company/sales-bg.gif");
+      }
+      div.profit{
+        background-image:asset-data-url("company/profit-bg.gif");
+      }
+  }
+
+  table.finfo{
+      width:100%;
+      table-layout:fixed;
+      border-collapse:collapse;
+      font-size:11px;
+      td,th{
+        border:solid 1px #888888;
+        font-weight:normal;
+        padding:2px;
+      }
+      th{
+        background-color:#AACCFF;
+        text-align:left;
+      }
+      th.title{
+        font-weight:bold;
+        background-color:#666666;
+        color:#F0F0F0;
+        border-bottom:solid 3px #FF6600;
+      }
+      td{
+        text-align:right;
+      }
+      thead{
+        .top th{
+          border-bottom:none;
+          text-align:center;
+        }
+        .top th.first{
+          text-align:right;
+          font-size:11px;
+        }
+        .bot th{
+          border-top:none;
+          text-align:center;
+          font-size:9px;
+        }
+        .bot th.first{
+          text-align:left;
+          font-size:11px;
+        }
+      }
+  }
+
+  input{
+      margin-right:10px;
+  }
+  label{
+      margin-left:5px;
+      margin-top:3px;
+  }
+  li{
+      margin-bottom:8px;
+      list-style:square;
+      line-height:17px;
+  }
+  ol{
+      font-size:11px;
+      color:#333333;
+      li{
+        list-style:decimal;
+        margin-bottom:4px;
+      }
+  }
+}

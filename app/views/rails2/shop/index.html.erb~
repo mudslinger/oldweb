@@ -1,0 +1,34 @@
+<div id="narrowarea">
+  <%=render(:partial => "finder")%>
+</div>
+<div id="widearea">
+<div id="news">
+<%@new_shops.each{|ns|%>
+  <div class="box" style="clear:both;">
+    <div class="wakutop">
+      <div class="ttt">
+        <h2 class="wakutitle"><%=link_to fd(ns.inauguration)+"オープン！！",{:action=>"shop",:id=>ns.id},{:title=>ns.name}%></h2>
+      </div>
+    </div>
+    <div class="wakumiddle">
+      <div class="wakuinner" style="color:#334433;font-size:24px;font-weight:bold;">
+        <%=link_to ns.name,{:action=>"shop",:id=>ns.id},{:title=>ns.name}%>
+      </div>
+      <div class="wakuinner" style="height:110px;">
+        <%smap_src = "http://maps.google.com/staticmap?center=#{ns.lat},#{ns.lng}&zoom=#{ns.zoom-2}&size=200x100&markers=#{ns.lat},#{ns.lng},red&key=#{@gmaps_code}&format=gif"%>
+          <%=link_to image_tag(smap_src,:alt=>"山岡家 #{ns.name}地図",:align=>"right",:style=>"width:200px;height:100px;border:inset 1px #CC0000;"),{:action=>"shop",:id=>ns.id},{:title=>ns.name}%>
+        <div>〒<%=ns.zip%></div>
+        <div><%=ns.address%></div>
+        <div>TEL：<%=ns.phone%></div>
+        <div>営業時間：<%=ns.shop_hour%></div>
+        <%if !ns.shop_hour_comment.blank? then%>
+        <div style="font-size:12px;">※<%=ns.shop_hour_comment%></div>
+        <%end%>
+      </div>
+    </div>
+    <div class="wakubottom"></div>
+  </div>
+<%}%>
+</div>
+</div>
+

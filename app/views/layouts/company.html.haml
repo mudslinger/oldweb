@@ -1,0 +1,10 @@
+- content_for(:layout_inner) do
+  #widearea
+    = yield
+  #narrowarea
+    =link_to(raw("<div>ごあいさつ</div>"),{:action=>"greetings"},{:class=>"sidemenu"})
+    =link_to(raw("<div>会社概要</div>"),{:action=>"index"},{:class=>"sidemenu"})
+    =link_to(raw("<div>ヒストリー</div>"),{:action=>"history"},{:class=>"sidemenu"})
+    =link_to(raw("<div>SNS ガイドライン</div>"),{:action=>"sns_guideline"},{:class=>"sidemenu"})
+    =link_to(raw("<div>創業25年感謝祭</div>"),{:action=>"aniv_25"},{:class=>"sidemenu"})
+=render :template => "layouts/application"

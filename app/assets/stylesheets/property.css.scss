@@ -1,0 +1,64 @@
+html.property{
+
+  div#narrowarea{
+      float:left;
+      border:none;
+      width:332px;
+      dt{
+          background-color:#EEEEFA;
+      }
+      h3{
+          border:solid 1px #EEEEFA;
+      }
+  }
+  div#widearea{
+      float:right;
+      border:none;
+      width:412px;
+      p{
+        margin-bottom:8px;
+        margin-top:5px;
+      }
+      dt{
+          background-color:#FAEEEE;
+      }
+      h3{
+          border:solid 1px #FAEEEE;
+      }
+  }
+  h2{
+      text-align:left;
+      border-left:solid 20px #FC0000;
+      border-bottom:solid 1px #FC0000;
+      font-size:18px;
+      padding:2px;
+      clear:both;
+  }
+  h3{
+      text-align:center;
+      background-color:#505050;
+      color:#F0F0F0;
+      border:solid 1px red;
+      font-size:15px;
+      padding:5px;
+  }
+  dl{
+      width:100%;
+  }
+  dt{
+      color:#303030;
+      font-size:15px;
+      padding:2px;
+      border-bottom:solid 2px silver;
+      margin-bottom:5px;
+  }
+  dd{
+      border-bottom:dotted 1px silver;
+      padding:2px;
+  }
+
+
+  p{
+      margin:5px;
+  }
+}

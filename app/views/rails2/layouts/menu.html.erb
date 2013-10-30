@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
+  <head>
+    <%=render(:partial => "/layouts/meta")%>
+    <%=render(:partial => "/layouts/ext_load")%>
+    <title>ラーメン山岡家<%="・・・" + @metadata.name if @metadata%></title>
+    <script type="text/javascript">
+      function mov(obj){
+            obj.src = "/images/tabp.gif";
+      }
+      function movo(obj){
+            obj.src = "/images/tab.gif";
+      }
+    </script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-3359034-1");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+    </script>
+  </head>
+  <body>
+    <div id="xcenter">
+      <div id="dscbox">
+        <div class="sc3">
+          <div class="sc2">
+            <div class="sc1">
+                <div id="center">
+                  <div id="scbox">
+                    <div class="sc3">
+                      <div class="sc2">
+                        <div class="sc1">
+                          <div id="title">
+                            <%=render(:partial => "/layouts/top_link")%>
+                            <div id="flash">
+                                <%=render(:partial => "/#{@ctrl}/title")%>
+                            </div>
+                            <%=render(:partial => "/layouts/menu")%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bd">
+                      <br />
+                      <%=link_to image_tag("menu/pages/0.gif",:alt=>"レギュラーメニュー"),:action => "menu",:id=>"index",:page=>0%>
+                      <%=link_to image_tag("menu/pages/1.gif",:alt=>"サービスセット・サイドメニュー"),:action => "menu",:id=>"index",:page=>1%>
+                      <%=link_to image_tag("menu/pages/2.gif",:alt=>"期間・地域限定メニュー"),:action => "menu",:id=>"index",:page=>2%>
+                      <%=link_to image_tag("menu/pages/3.gif",:alt=>"過去のメニュー"),:action => "menu",:id=>"index",:page=>100%>
+                      <hr />
+<div id="narrowarea">
+  <dl class="p<%=params['page']%>">
+    <dt class="title">
+      <%=image_tag "menu/titles/#{params['page']}.gif"%>
+    </dt>
+    <%
+    gname = nil
+    @menus.each{ |m|
+    %>
+    <%if(gname != m.genre_name) then%>
+    <dt>
+      <%=image_tag "menu/genres/#{m.genre_id}.gif", :alt=>m.genre_name%>
+      
+    </dt>
+    <%end%>
+    <%gname = m.genre_name%>
+    <dd>
+      
+      <%=link_to m.name,:action => "menu",:id=>m.id,:page=>m.page%>
+      <%=image_tag "shop/new.gif" if m.new?%>
+    </dd>
+    <%}%>
+    <dt class="title">
+      <%=image_tag "menu/titles/#{params['page']}f.gif"%>
+    </dt>
+  </dl>
+
+</div>
+
+<div id="widearea">
+  <%=yield%>
+</div>
+
+                    </div>
+                    <%=render(:partial => "/layouts/foot_navi")%>
+                  </div>
+                  <div id="foot">
+                    Copyright 2008 Maruchiyo YAMAOKAYA Corp. All Rights Reserved.
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%=render(:partial => "/layouts/tab")%>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+- content_for(:layout_inner) do
+  %br
+  =link_to image_tag64("menu/pages/0.gif",alt:"レギュラーメニュー"),action: :menu,page: 0,controller: :menu
+  =link_to image_tag64("menu/pages/1.gif",alt:"サービスセット・サイドメニュー"),action: :menu,page: 1,controller: :menu
+  =link_to image_tag64("menu/pages/2.gif",alt:"期間・地域限定メニュー"),action: :menu,page: 2,controller: :menu
+  =link_to image_tag64("menu/pages/3.gif",alt:"過去のメニュー"),action: :menu,page: 100,controller: :menu
+  %hr
+  #narrowarea
+    %dl{class: "p#{@page}"}
+      %dt.title
+        =image_tag64 "menu/titles/#{@page}.gif"
+      - @genres.each do |g|
+        %dt= image_tag64 "menu/genres/#{g.id}.gif", alt: g.name if g.menus.state(@filter_type).exists?
+        - g.menus.state(@filter_type).each do |m|
+          %dd
+            = link_to m.name,action: :menu,id: m.id,page: @page
+            = image_tag64 "shop/new.gif" if m.new?
+      %dt.title
+        =image_tag64 "menu/titles/#{@page}f.gif"
+  #widearea
+    =yield
+=render :template => "layouts/application"

@@ -1,0 +1,121 @@
+html.menu{
+  div#narrowarea{
+      float:left;
+      border:none;
+      width:244px;
+      div.wakutop{
+          background-image:url(/images/wakutop.gif);
+          .title{
+              margin-left:36px;
+              margin-top:10px;
+          }
+      }
+      div.wakumiddle{
+          background-image:url(/images/wakumiddle.gif);
+      }
+      div.wakubottom{
+          background-image:url(/images/wakubottom.gif);
+      }
+  }
+  div#widearea{
+      float:right;
+      border:none;
+      width:510px;
+      div.wakutop{
+          background-image:url(/images/wakultop.gif);
+          .title{
+              margin-left:36px;
+              margin-top:10px;
+          }
+      }
+      div.wakumiddle{
+          background-image:url(/images/wakulmiddle.gif);
+      }
+      div.wakubottom{
+          background-image:url(/images/wakulbottom.gif);
+      }
+  }
+
+  div.wakuinner{
+      padding:0px 20px 0px 20px;
+      clear:both;
+  }
+
+  div.lbt{
+      width:120px;
+      border:solid 1px #666666;
+      background-color:#777777;
+      color:#DDDDDD;
+      text-align:center;
+      padding-top:8px;
+      padding-bottom:8px;
+      margin:5px;
+  }
+
+  table.recept{
+      table-layout:fixed;
+      border:none;
+      border-collapse:collapse;
+      text-align:center;
+      td,th{
+          border:none;
+          margin:0px;
+          padding:0px;
+          background-position:top;
+          background-repeat:repeat-x;
+          font-size:10px;
+          color:#222222;
+      }
+  }
+
+
+  dl{
+      width:100%;
+  }
+  dl.p0{
+      background-color:#D0CCCC;
+  }
+  dl.p1{
+      background-color:#CCD0CC;
+  }
+  dl.p2{
+      background-color:#D0D0CC;
+  }
+  dl.p100{
+      background-color:#CCCCD0;
+  }
+
+  dt{
+      padding:0px;
+      text-align:center;
+      border:none;
+      margin:0px;
+      font-size:18px;
+      text-align:left;
+      font-weight:bold;
+
+  }
+  dt.title{
+      background-color:#FFF;
+  }
+  dd{
+      border-bottom:dotted 1px #AA00AA;
+      margin-left:20px;
+      padding:2px;
+  }
+
+  h2{
+      font-size:40px;
+      font-weight:bold;
+      clear:both;
+      float:none;
+      width:100%;
+
+  }
+  p{
+      font-size:14px;
+      display:block;
+      clear:both;
+      float:none;
+  }
+}

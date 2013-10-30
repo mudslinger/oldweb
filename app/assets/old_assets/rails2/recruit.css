@@ -1,0 +1,77 @@
+div#narrowarea{
+    float:left;
+    border:none;
+    width:372px;
+}
+div#widearea{
+    float:right;
+    border:none;
+    width:372px;
+}
+h2{
+    text-align:left;
+    border-left:solid 20px #F0F000;
+    border-bottom:solid 1px #F0F000;
+    font-size:18px;
+    padding:2px;
+    clear:both;
+}
+h3{
+    text-align:center;
+    background-color:#505050;
+    color:#F0F0F0;
+    border:solid 1px red;
+    font-size:15px;
+    padding:5px;
+}
+dl{
+    width:100%;
+}
+dt{
+    color:#303030;
+    font-size:15px;
+    padding:2px;
+    border-bottom:solid 2px silver;
+    margin-bottom:5px;
+}
+dd{
+    border-bottom:dotted 1px silver;
+    padding:2px;
+}
+
+#narrowarea dt{
+    background-color:#EEEEFA;
+}
+#narrowarea h3{
+    border:solid 1px #EEEEFA;
+}
+#widearea dt{
+    background-color:#FAEEEE;
+}
+#widearea h3{
+    border:solid 1px #FAEEEE;
+}
+table.quick_offer{
+    margin-bottom:20px;
+}
+table.quick_offer caption{
+    width:100%;
+    color:black;
+    padding:5px;
+    font-size:16px;
+    font-weight:bold;
+    text-align:left;
+    border-left: solid 30px #0000DC;
+    margin-bottom: 20px;
+}
+table.quick_offer th,table.quick_offer td{
+    border:solid 1px #F0F000;
+    padding:2px;
+}
+table.quick_offer tr.hd th{
+    background-color:#FFFFAA;
+    text-align:center;
+}
+p{
+    margin:5px;
+}

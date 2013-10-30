@@ -1,0 +1,62 @@
+.box
+  .wakutop
+    .ttt
+      %h2.wakutitle
+        山岡家
+        = @shop.name
+        店舗情報
+  .wakumiddle
+    .wakuinner
+      %dl
+        -if @shop.closed?
+          %dd
+            =@shop.name
+            は閉店いたしました。
+        %dt
+          %span ▼
+          住所
+        %dd(style="font-size:13px;")
+          〒
+          =@shop.zip
+        %dd
+          =@shop.address
+        %dt
+          %span ▼
+          電話番号
+        %dd
+          =@shop.phone
+        %dt
+          %span ▼
+          地図
+        %dd
+          #map(style="width:99%;height:250px;border:inset 1px #CCCCCC;")
+          :coffeescript
+            $map = $("#map").gmap #{@shop.gmap_opts}
+            $map.gmap('addMarker',#{@shop.gmap_marker_opts})
+
+        %dt
+          %span ▼
+          営業時間
+        %dd
+          =@shop.shop_hour
+        - unless @shop.shop_hour_comment.blank?
+          %dd(style="font-size:12px;")
+            ※
+            =@shop.shop_hour_comment
+        %dt
+          %span ▼
+          アクセス
+        %dd
+          =@shop.access
+        %dt
+          %span ▼
+          目印・その他
+        %dd
+          =@shop.landmark
+        %dt
+          %span ▼
+          店舗画像
+        %dd
+          =image_tag64 "shop/photos/#{@shop.id}.jpg",:alt => "ラーメン山岡家#{@shop.name}",:width=> 200
+          =image_tag64 "shop/photos/#{@shop.id}i.jpg",:alt => "ラーメン山岡家#{@shop.name}",:width=> 200
+  .wakubottom

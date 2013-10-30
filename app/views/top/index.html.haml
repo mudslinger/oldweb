@@ -1,0 +1,97 @@
+#fb-root
+:coffeescript
+  do (d = document, s = 'script', id = 'facebook-jssdk') ->
+    fjs = d.getElementsByTagName(s)[0]
+    return if (d.getElementById(id))
+    js = d.createElement(s)
+    js.id = id
+    js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1"
+    fjs.parentNode.insertBefore(js, fjs)
+#ue
+  %ul.js-hidden#js-news
+    - @news_s.each do |i|
+      %li.news-item
+        =fd(i.release_date)
+        …
+        =link_to i.title,i.url
+  :coffeescript
+    #$('#js-news').ticker()
+#narrowarea
+  .box
+    .wakumiddle
+      .wakuinner
+        %a.twitter-timeline{href:"https://twitter.com/yamaokaya_pr","data-widget-id" => 365009217540730880}
+          @yamaokaya_pr からのツイート
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+      .wakuinner
+        .fb-like-box{"data-href" => "http://www.facebook.com/yamaokaya",
+          "data-width" => 250,
+          "data-height" => 380,
+          "data-show-faces" => false,
+          "data-stream" => true,
+          "data-show-border"=> false,
+          "data-header" => false}
+      .wakuinner
+        バナー群
+    .wakubottom
+#widearea
+  .box
+    .wakutop
+      .ttt
+        %h2.wakutitle 店舗情報
+    .wakumiddle
+      .wakuinner{style:"text-aligin:center;"}
+        %object{data:"/movies/topmap.swf",
+        type: "application/x-shockwave-flash",
+        width: 400,
+        height: 380,
+        title:"店舗情報"}
+          店舗情報
+          %param{name: "movie",value:"/movies/topmap.swf"}
+          %param{name: "quality",value:"high"}
+    .wakubottom
+  .box
+    .wakutop
+      .ttt
+        %h2.wakutitle 最新情報
+        =link_to image_tag64("list.gif",alt:"最新情報一覧"),{:action=>"index"},{title: "最新情報一覧",class: "list"}
+    .wakumiddle
+      .wakuinner
+        %table.news{summary:"最新情報"}
+          %col{width:30}
+          %col{width:80}
+          %col{width:'*'}
+          - @news_s.each_with_index do |i,idx|
+            %tr.irb
+              - if idx == 0
+                %th.topics{rowspan: @news_s.length,abbr: 'トピックス'}
+                  =image_tag64 'topics.gif', alt: 'トピックス'
+              %td
+                =fd(i.release_date)
+              %td
+                =link_to i.title,h(i.url)
+          - @news_i.each_with_index do |i,idx|
+            %tr.irb
+              - if idx == 0
+                %th.ir{rowspan: @news_i.length,abbr: 'IR'}
+                  =image_tag64 'ir.gif', alt: 'IR'
+              %td
+                =fd(i.release_date)
+              %td
+                =link_to i.title,h(i.url)
+    .wakubottom
+#bottomarea
+  .btb
+    .title
+      スタッフ募集
+    %div{style:"float:left;padding:5px;"}
+      新店舗拡大中。新しいスタッフ（パート・アルバイト・店長候補）を募集しております。
+    %div{style:"float:left;padding:5px;"}
+      = link_to "詳しくはこちら",{controller: :top,action: :index},{title: "スタッフ募集"}
+  .btb
+    .title
+      店舗物件募集
+    = image_tag64 "index_ph02.jpg",style: "float:left;padding:5px;",alt:"店舗物件募集"
+    %div{style:"float:left;padding:5px;"}
+      = link_to "店舗物件を広く募集しております。",{controller: :top,action: :index},{title: "店舗物件募集"}

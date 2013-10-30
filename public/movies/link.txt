@@ -1,0 +1,4 @@
+link01=http://www.yamaokaya.com/
+&link02=http://www.yamaokaya.com/
+&link03=http://www.yamaokaya.com/
+

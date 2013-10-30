@@ -1,0 +1,289 @@
+body{
+    margin: 0px;
+    background-color: #EEEEEE;
+    background-image:url(/images/bg.jpg);
+    background-repeat:repeat-x;
+    text-align:center;
+    font-family: "ＭＳ Ｐゴシック", "Osaka";
+    font-size: 12px;
+    padding-left:10%;
+    padding-right:10%;
+    padding-bottom:5%;
+    padding-top:0px;
+}
+div#xcenter{
+    margin:0px;
+    padding:0px;
+    width:840px;
+    text-align:left;
+}
+div#center{
+    margin:0px;
+    width:100%;
+    background-color:#FFFFFF;
+    text-align:left;
+}
+div#title{
+  width:768px;
+  background-color:#DC0000;
+  padding:0px;
+  margin:0px;
+  position:relative;
+}
+img#logo{
+    position:relative;
+    margin:0px;
+   padding:0px;
+   left:0px;
+   top:0px;
+}
+div#toplink{
+  position:absolute;
+  padding: 35px 10px 0px 0px;
+  right:0px;
+  margin:0
+}
+div#flash{
+  position:relative;
+  left:0px;
+  top:-2px;
+  clear:both;
+  width:100%;
+  margin:0px;
+  padding:0px;
+}
+div#flash #title_img{
+    float:left;
+    width:646px;
+}
+div#flash #title_txt{
+    float:right;
+    width:120px;
+    color:#FFFFFF;
+    font-size:28px;
+    margin-top:60px;
+    text-align:center;
+}
+
+div#toplink a{
+    color:#FFFFFF;
+}
+
+a:link {
+	color: #3232DC;
+	text-decoration:none ;
+}
+
+a:visited {
+	color: #3232DC;
+	text-decoration:none ;
+}
+
+a:hover {
+	color: #28288C;
+	text-decoration:underline;
+}
+div#menu span{
+    float:left;
+    text-align:center;
+    background-image:url(/images/button.jpg);
+    width:150px;
+    padding-top:8px;
+    padding-bottom:8px;
+    border:none;
+    margin:0px;
+    border-right:1px solid #999999;
+    font-size:13px;
+    color: #333333;
+
+    cursor:pointer;
+}
+div#menu{
+    background-image:url(/images/button.jpg);
+    text-align:center;
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+div#menu a:hover {
+    font-weight:bold;
+    text-decoration:none;
+}
+div#buttond{
+    border-top:1px solid #999999;
+    background-image:url(/images/buttond.jpg);
+    height:5px;
+}
+#scbox {
+    margin:0px 16px 0px 16px;
+    position: relative;
+}
+#dscbox{
+    position: relative;
+    width:800px;
+    float:left;
+}
+
+
+#dscbox .sc1,
+#dscbox .sc2,
+#dscbox .sc3{
+    position: relative;
+    left: -1px;
+    top: -1px;
+}
+#scbox .sc1,
+#scbox .sc2,
+#scbox .sc3
+{
+    position: relative;
+    left: -1px;
+    top:-1px;
+}
+#dscbox .sc3{
+    background: #AAAAAA;
+}
+#dscbox .sc2{
+    background: #888888;
+}
+#dscbox .sc1{
+    background: #666666;
+}
+#scbox .sc3{
+    background: #F1F0F1;
+}
+#scbox .sc2{
+    background: #DBDADB;
+}
+#scbox .sc1{
+    background: #B8B6B8;
+}
+
+div#footnavi{
+    text-align:center;
+    padding-top:8px;
+    padding-bottom:8px;
+    clear:both;
+    float:none;
+}
+
+div#foot{
+    background-color:#555555;
+    background-image:url(/images/footbg.jpg);
+    color:#DDDDDD;
+    text-align:center;
+    margin:0px;
+    width:800px;
+    font-size:11px;
+    padding:10px 0px 10px 0px;
+
+}
+
+div.tab{
+    position:relative;
+    left:-3px;
+    float:left;
+    width:40px;
+    height:70px;
+    text-align:center;
+    margin-top:10px;
+}
+div.bd{
+    float:none;
+    clear:both;
+}
+img{
+  border:none;
+  margin:0px;
+}
+
+div.wakutop{
+    border:none;
+    width:100%;
+    background-position:top;
+    background-repeat:no-repeat;
+    height:35px;
+}
+div.wakumiddle{
+    border:none;
+    width:100%;
+    background-position:top;
+    background-repeat:repeat-y;
+
+}
+div.wakubottom{
+    border:none;
+    width:100%;
+    background-position:top;
+    background-repeat:no-repeat;
+    height:35px;
+}
+div.wakutop div.ttt{
+    position:relative;
+    left:30px;
+    top:8px;
+    width:88%;
+    padding:0px;
+    height:20px;
+    border:none;
+}
+div.ttt h2.wakutitle{
+    float:left;
+    font-size:14px;
+    color:#222;
+    padding:0px;
+    margin:0px;
+    border:none;
+}
+div.ttt a.list{
+    float:right;
+    border:none;
+}
+table{
+    table-layout:fixed;
+    border-collapse:collapse;
+    font-size:12px;
+}
+div.tlink{
+    float:none;
+    clear:both;
+    width:100%;
+    background-color:#CFCFCF;
+    border:outset 1px #CFCFCF;
+}
+div.tlink a{
+    float:left;
+    padding:5px;
+    font-size:12px;
+}
+.fieldWithErrors input, .fieldWithErrors textarea, .fieldWithErrors optgroup{
+    background-color:#FFCCCC;
+}
+
+.fieldWithErrors{
+    display:inline;
+}
+.formError{
+    color:#FF6666;
+}
+div#flash_message{
+    position:absolute;
+    top:10%;
+    left:20%;
+    padding:100px 30px 30px 30px;
+    margin:0px;
+    width:55%;
+    height:200px;
+    background-color:#EEEEEE;
+    border:outset 1px #EEEEEE;
+    color:black;
+    font-size:15px;
+    z-index:0;
+    filter:alpha(opacity=90);
+    -moz-opacity:0.90;
+    opacity:0.90;
+    text-align:center;
+}
+div.hidden-images{
+    display:none;
+}

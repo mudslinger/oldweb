@@ -1,0 +1,10 @@
+<div id="widearea">
+<h1 class="sd">株価情報</h1>
+<p>
+  <%= link_to "株価情報","http://quote.tse.or.jp/tse_n/quote.cgi?F=listing/JDetail1&MKTN=T&QCODE=3399",:target => "_blank" %>
+  （東京証券取引所様提供のWebページへリンクしています）
+</p>
+</div>
+<div id="narrowarea">
+    <%=render(:partial => "/#{@ctrl}/sidemenu")%>
+</div>

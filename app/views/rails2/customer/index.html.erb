@@ -1,0 +1,143 @@
+<h1 class="sd">ご意見・ご感想をお聞かせください</h1>
+<p>
+  山岡家では、お客様のご意見に基づいて、より良い味・より良いサービスを追求しております。
+  ぜひ、お客様の率直なご意見をお聞かせください。
+</p>
+<p>
+  アンケートのご協力を頂いた方には抽選で粗品を進呈いたします。 ご協力をお願いいたします。 
+</p>
+<p>
+  <span style="color:red">*</span>印がついている項目は必ずご入力頂き、その他につきましては差支えのない範囲でお答え下さい。 
+</p>
+<% form_for(:customer_message,:url =>{:action => "send_message"}) do |f| %>
+  
+  <dl>
+    <dt>
+      <%= f.label :name ,"お客様の情報"%>
+    </dt>
+    <dd>
+      <span style="color:red">*</span><%= f.label :name ,"お名前"%>
+      <%= f.text_field :name,:size => 20%>
+      <%= f.label :age ,"年齢"%>
+      <%= f.select(:age,CustomerMessage::AGE_OPTS,:prompt=>"----") %>
+      <%= f.label :sex ,"性別"%>
+      <%= f.select(:sex,CustomerMessage::SEX_OPTS,:prompt=>"----") %>
+      <%= error_message_on "customer_message","name" %>
+    </dd>
+    <dd>
+      <span style="color:red">*</span><%= f.label :mail_addr ,"e-mail"%>
+      <%= f.text_field :mail_addr,:size => 32%>
+      <br />
+      <span style="color:red">*</span><%= f.label :mail_addr ,"(確認)"%>
+      <%= f.text_field :maddr_user,:size => 11%>@<%= f.text_field :maddr_domain,:size => 14%>
+      <%= error_message_on "customer_message","mail_addr" %>
+    </dd>
+    <dd>
+      <%= f.label :address ,"ご住所"%>
+      <%= f.text_field :address,:size => 80%>
+    </dd>
+    <dd>
+      <%= f.label :phone ,"ＴＥＬ"%>
+      <%= f.text_field :phone,:size => 30%>
+    </dd>
+    <dt>
+      <%= f.label :shop_code ,"ご来店情報"%>
+    </dt>
+    <dd>
+      <%= f.label :shop_code ,"店舗名"%>
+      <%= select_tag(
+        "customer_message[shop_code]",
+        options_for_select([["-- 未選択 --", ""]]) +
+        option_groups_from_collection_for_select(Pref.shop_exists,:shops, :name, :id, :name,@customer_message.shop_code)
+      ) %>
+      <%= f.label :visit_date ,"ご来店日時"%>
+      <%= f.date_select :visit_date,:use_month_numbers => true, :start_year => Date.today.year-2, :end_year => Date.today.year,:datetime_separator=>"" %>
+      <%= f.select(:visit_time,CustomerMessage::TIME_OPTS,:prompt=>"--ご来店時間帯--") %>
+      <%= f.select(:repetition,CustomerMessage::REP_OPTS,:prompt=>"--ご来店頻度--") %>
+    </dd>
+    <dt>
+      <%= f.label :menu_code ,"お食事・サービス等について"%>
+    </dt>
+    <dd>
+      <%= f.label :menu_code ,"お召し上がりのメニュー"%>
+      <%= select_tag("customer_message[menu_code]",
+        options_for_select([["-- 未選択 --", ""]]) +
+        option_groups_from_collection_for_select(Genre.for_questionnaire,:menus, :name, :id, :name,@customer_message.menu_code)
+      )%>
+    </dd>
+    <dd class="rdo">
+      <div><%= f.label :q ,"商品のお味・品質について"%></div>
+      <span style="border-color:#BBBBFF;"><label><%=f.radio_button :q,2%>非常に良い</label></span>
+      <span style="border-color:#BBBBDD;"><label><%=f.radio_button :q,1%>良い</label></span>
+      <span style="border-color:#CCCCCC;"><label><%=f.radio_button :q,0%>普通</label></span>
+      <span style="border-color:#DDBBBB;"><label><%=f.radio_button :q,-1%>悪い</label></span>
+      <span style="border-color:#FFBBBB;"><label><%=f.radio_button :q,-2%>非常に悪い</label></span>
+      <span class="l"><label><%=f.radio_button :q,""%>判断できない・その他</label></span>
+      <br style="clear:both" />
+    </dd>
+    <dd class="rdo">
+      <div><%= f.label :s ,"店員の態度について"%></div>
+      <span style="border-color:#BBBBFF;"><label><%=f.radio_button :s,2%>非常に良い</label></span>
+      <span style="border-color:#BBBBDD;"><label><%=f.radio_button :s,1%>良い</label></span>
+      <span style="border-color:#CCCCCC;"><label><%=f.radio_button :s,0%>普通</label></span>
+      <span style="border-color:#DDBBBB;"><label><%=f.radio_button :s,-1%>悪い</label></span>
+      <span style="border-color:#FFBBBB;"><label><%=f.radio_button :s,-2%>非常に悪い</label></span>
+      <span class="l"><label><%=f.radio_button :s,""%>判断できない・その他</label></span>
+      <br style="clear:both" />
+    </dd>
+    <dd class="rdo">
+      <div><%= f.label :c ,"お店の清潔さについて"%></div>
+      <span style="border-color:#BBBBFF;"><label><%=f.radio_button :c,2%>非常に良い</label></span>
+      <span style="border-color:#BBBBDD;"><label><%=f.radio_button :c,1%>良い</label></span>
+      <span style="border-color:#CCCCCC;"><label><%=f.radio_button :c,0%>普通</label></span>
+      <span style="border-color:#DDBBBB;"><label><%=f.radio_button :c,-1%>悪い</label></span>
+      <span style="border-color:#FFBBBB;"><label><%=f.radio_button :c,-2%>非常に悪い</label></span>
+      <span class="l"><label><%=f.radio_button :c,""%>判断できない・その他</label></span>
+      <br style="clear:both" />
+    </dd>
+    <dd class="rdo">
+      <div><%= f.label :a ,"お店の雰囲気について"%></div>
+      <span style="border-color:#BBBBFF;"><label><%=f.radio_button :a,2%>非常に良い</label></span>
+      <span style="border-color:#BBBBDD;"><label><%=f.radio_button :a,1%>良い</label></span>
+      <span style="border-color:#CCCCCC;"><label><%=f.radio_button :a,0%>普通</label></span>
+      <span style="border-color:#DDBBBB;"><label><%=f.radio_button :a,-1%>悪い</label></span>
+      <span style="border-color:#FFBBBB;"><label><%=f.radio_button :a,-2%>非常に悪い</label></span>
+      <span class="l"><label><%=f.radio_button :a,""%>判断できない・その他</label></span>
+      <br style="clear:both" />
+    </dd>
+    <dt>
+      <%= f.label :message ,"ご意見・ご感想がありましたらご記入ください"%>
+    </dt>
+    <dd>
+      <%=f.text_area :message,:size => "80x8"%>
+    </dd>
+    <dt>
+      <%= f.label :reply ,"弊社からのご返信について"%>
+    </dt>
+    <dd>
+      <%= f.check_box :reply%><%= f.label :reply ,"返信を希望する"%>
+    </dd>
+  </dl>
+  <ul>
+    <li>ご入力いただいた情報は暗号化されて送信されます。</li>
+    <li>お問合せ、ご意見すべてに、必ずしも返信をお約束するものではありません。ご了承くださいませ。</li>
+    <li>メールアドレスの入力には特にご注意ください。間違ったアドレスが入力された場合、ご返信させていただけないことがございます。</li>
+    <li>
+      お客様の環境（セキュリティソフトなど）により、まれに正しく送信されない場合がございます。
+      その際は、お手数ですがセキュリティソフトをいったん無効にしていただくか、
+      <a href="mailto:info@yamaokaya.com">info@yamaokaya.com</a>まで直接ご意見をお寄せ下さいますよう、お願い申し上げます。
+    </li>
+  </ul>
+  <p style="text-align:center;">
+    <%= f.submit "送信" %>
+  </p>
+<% end %>
+<%if flash[:notice]%>
+  <div id="flash_message">
+    <%=flash[:notice]%>
+    <%flash.discard(:notice)%>
+    <br />
+    <hr />
+    <button onclick="$('flash_message').style.display = 'none';">確認</button>
+  </div>
+<%end%>

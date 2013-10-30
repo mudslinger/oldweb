@@ -1,0 +1,15 @@
+<script type="text/javascript" src="/javascripts/prototype.js" ></script>
+<script type="text/javascript" src="/javascripts/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="/javascripts/ticker.js" ></script>
+<%# 店舗情報の場合、google maps API読み込み%>
+<%if @ctrl == "shop" then%>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<%=render(:partial  => "ext_script")%>
+<%end%>
+<link href="/stylesheets/common.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="/stylesheets/lightbox.css" type="text/css" media="screen" />
+<link href="/stylesheets/<%=@ctrl%>.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="YAMAOKAYA" href="/sitemap.xml" />
+<link rev="made" href="YAMAOKAYA" />
+<link rel="index" href="/site/sitemap.html" />
+<link rel="start" href="/index.html" />

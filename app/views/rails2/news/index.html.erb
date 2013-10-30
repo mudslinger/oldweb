@@ -1,0 +1,27 @@
+<h1>最新情報一覧</h1>
+<div style="float:left;width:47%;">
+<h2>TOPICS</h2>
+<dl>
+<%tt = nil%>
+<%@topics.each{|t|%>
+    <%if tt.nil? || t.release_date.month != tt.release_date.month then%>
+  <dt><%="#{t.release_date.year}年#{t.release_date.month}月"%></dt>
+  <%end%>
+  <dd><%=link_to t.title + "(#{t.release_date.month}/#{t.release_date.day})",h(t.url)%></dd>
+  <%tt = t%>
+<%}%>
+</dl>
+</div>
+<div style="float:left;width:47%;">
+<h2>IR</h2>
+<dl>
+<%tt = nil%>
+<%@ir.each{|t|%>
+    <%if tt.nil? || t.release_date.month != tt.release_date.month then%>
+  <dt><%="#{t.release_date.year}年#{t.release_date.month}月"%></dt>
+  <%end%>
+  <dd><%=link_to t.title + "(#{t.release_date.month}/#{t.release_date.day})",h(t.url)%></dd>
+  <%tt = t%>
+<%}%>
+</dl>
+</div>

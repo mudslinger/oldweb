@@ -1,0 +1,72 @@
+<div id="narrowarea">
+  <%=render(:partial => "finder")%>
+</div>
+<div id="widearea">
+  <div class="box">
+    <div class="wakutop">
+      <div class="ttt">
+        <h2 class="wakutitle">
+	<%if(@shop.id != 161001) then%>
+	山岡家
+	<% end %>
+	<%=@shop.name%> 店舗情報
+	</h2>
+      </div>
+    </div>
+    <div class="wakumiddle">
+      <div class="wakuinner">
+        <dl>
+          <dt><span>▼</span>住所</dt>
+          <dd style="font-size:13px;">〒<%=@shop.zip%></dd>
+          <dd><%=@shop.address%></dd>
+          <dt><span>▼</span>電話番号</dt>
+          <dd><%=@shop.phone%></dd>  
+          <dt><span>▼</span>地図</dt>
+          <dd><div id="map" style="width:99%;height:250px;border:inset 1px #CCCCCC;"></div></dd>
+          <dt><span>▼</span>営業時間</dt>
+          <dd><%=@shop.shop_hour%></dd>
+          <%if !@shop.shop_hour_comment.blank? then%>
+          <dd style="font-size:12px;">※<%=@shop.shop_hour_comment%></dd>
+          <%end%>
+          <dt><span>▼</span>アクセス</dt>
+          <dd><%=@shop.access%></dd>
+          <dt><span>▼</span>目印・その他</dt>
+          <dd><%=@shop.landmark%></dd>
+          <dt><span>▼</span>店舗画像</dt>
+          <dd>
+            <%=image_tag "shop/photos/#{@shop.id}.jpg",:alt => "ラーメン山岡家#{@shop.name}",:width=> 200 if File.exist?("#{RAILS_ROOT}/public/images/shop/photos/#{@shop.id}.jpg")%>
+            <%=image_tag "shop/photos/#{@shop.id}i.jpg",:alt => "ラーメン山岡家#{@shop.name}",:width=> 200 if File.exist?("#{RAILS_ROOT}/public/images/shop/photos/#{@shop.id}i.jpg")%>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="wakubottom"></div>
+  </div>
+  <%if(@rec_info != nil) then%>
+  <div class="box" id="recruit">
+    <div class="wakutop">
+      <div class="ttt">
+        <h2 class="wakutitle"><%=@shop.name%>で働いてみませんか？</h2>
+      </div>
+    </div>
+    <div class="wakumiddle">
+      <div class="wakuinner">
+        ラーメン山岡家 <%=@shop.name%>では、店舗スタッフを募集しています。
+      </div>
+      <div class="wakuinner">
+        <%=@rec_info.comment%>
+      </div>
+      <div class="wakuinner">
+        時給：<%=@rec_info.wage_from%>円～
+        (深夜時間帯：<%=@rec_info.wage_from*125/100%>円～)
+      </div>
+      <div class="wakuinner">
+        応募は、
+        <%=link_to "エントリーフォーム",:action=>"entry",:controller=>"recruit",:shop_id => @shop.id%>
+        から！
+      </div>
+    </div>
+    <div class="wakubottom"></div>
+  </div>
+  <%end%>
+</div>

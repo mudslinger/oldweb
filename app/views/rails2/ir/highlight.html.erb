@@ -1,0 +1,80 @@
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript" src="/javascripts/swfobject.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("jquery", "1.4.2");
+    google.load("jqueryui", "1.7.2");
+    google.setOnLoadCallback(drawChart);
+    function drawChart(){
+        $(function() {
+                $("#tabs").tabs({ collapsible: true });
+        });
+
+    swfobject.embedSWF(
+      "/movies/open-flash-chart.swf", "c1", "490", "500",
+      "9.0.0", "expressInstall.swf",
+      {"data-file":"/javascripts/data1.json"}
+      );
+    swfobject.embedSWF(
+      "/movies/open-flash-chart.swf", "c2", "490", "500",
+      "9.0.0", "expressInstall.swf",
+      {"data-file":"/javascripts/data2.json"}
+      );
+    swfobject.embedSWF(
+      "/movies/open-flash-chart.swf", "c3", "490", "500",
+      "9.0.0", "expressInstall.swf",
+      {"data-file":"/javascripts/data3.json"}
+      );
+    swfobject.embedSWF(
+      "/movies/open-flash-chart.swf", "c4", "490", "500",
+      "9.0.0", "expressInstall.swf",
+      {"data-file":"/javascripts/data4.json"}
+      );
+    swfobject.embedSWF(
+      "/movies/open-flash-chart.swf", "c5", "490", "500",
+      "9.0.0", "expressInstall.swf",
+      {"data-file":"/javascripts/data5.json"}
+      );
+    swfobject.embedSWF(
+      "/movies/open-flash-chart.swf", "c6", "490", "500",
+      "9.0.0", "expressInstall.swf",
+      {"data-file":"/javascripts/data6.json"}
+      );
+    }
+
+</script>
+<style type="text/css">
+  div#widearea{
+    font-size:10.5px;
+}
+</style>
+<div id="widearea">
+<h1 class="sd">財務ハイライト</h1>
+  <div id="tabs">
+    <ul>
+      <li><a href="#chart1">&nbsp;<br/>売上高</a></li>
+      <li><a href="#chart2">&nbsp;<br/>経常利益</a></li>
+      <li><a href="#chart3">&nbsp;<br/>当期純利益</a></li>
+      <li><a href="#chart4">総資産額/<br/>純資産額</a></li>
+      <li><a href="#chart5">1株あたり<br/>純資産額</a></li>
+      <li><a href="#chart6">1株あたり当期<br/>純利益金額</a></li>
+    </ul>
+    <div id="chart1"><div id="c1"></div></div>
+    <div id="chart2"><div id="c2"></div></div>
+    <div id="chart3"><div id="c3"></div></div>
+    <div id="chart4"><div id="c4"></div></div>
+    <div id="chart5"><div id="c5"></div></div>
+    <div id="chart6"><div id="c6"></div></div>
+  </div>
+  <ol>
+    <li>売上高には、消費税等は含まれておりません。 </li>
+    <li>
+      当社は、平成24年11月26日開催の取締役会決議に基づき、平成25年2月1日付で株式1株につき100株の株式分割を行なっております。
+      そのため、平成24年1月期の期首に当該株式分割が行われたと仮定して1株当たり当期純利益金額及び1株当たり純資産金額を算定しております。
+    </li>
+  </ol>
+</div>
+
+<div id="narrowarea">
+    <%=render(:partial => "/#{@ctrl}/sidemenu")%>
+</div>

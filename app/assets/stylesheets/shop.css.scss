@@ -1,0 +1,176 @@
+html.shop{
+    div#narrowarea{
+        float:left;
+        border:none;
+        margin:0px;
+        padding:0px;
+        width:294px;
+        div.wakutop{
+            background-image:asset-data-url("wakutop.gif");
+            height:11px;
+        }
+        div.wakumiddle{
+            background-image:asset-data-url("wakumiddle.gif");
+        }
+        div.wakubottom{
+            background-image:asset-data-url("wakubottom.gif");
+        }
+        dt{
+            width: 100%;
+            margin: 1px 1px 1px 1px;
+            padding: 2px 0px 2px 0px;
+            line-height: 130%;
+        }
+        dd{
+            _height: 1%; /* Hack for Win IE6 */
+            margin: 0 0 1px 1px;
+            padding: 0px;
+            line-height: 105%;
+        }
+        dt.shops{
+            display:none;
+        }
+    }
+    div#widearea{
+        float:right;
+        border:none;
+        margin:0px;
+        padding:0px;
+        width:460px;
+        div.wakutop{
+            background-image:asset-data-url("wakultop.gif");
+        }
+        div.wakumiddle{
+            background-image:asset-data-url("wakulmiddle.gif");
+        }
+        div.wakubottom{
+            background-image:asset-data-url("wakulbottom.gif");
+        }
+        dt{
+            color:#666666;
+            font-size:11px;
+            border-bottom:solid 1px #FF6600;
+        }
+        dd{
+          margin:5px 0px 8px 5px;
+          font-size:15px;
+        }
+        #news{
+            div.wakutop{
+                background-image:asset-data-url("wakultop_news.gif");
+            }
+            div.wakumiddle{
+                background-image:asset-data-url("wakulmiddle_news.gif");
+            }
+            div.wakubottom{
+                background-image:asset-data-url("wakulbottom_news.gif");
+            }
+            .wakuinner a{
+                color:white;
+            }
+            .wakutitle a{
+                color:red;
+            }
+            .wakuinner{
+                color:white;
+            }
+            .wakutitle{
+                float:left;
+                font-size:14px;
+                color:red;
+                padding:0px;
+                margin:0px;
+                border:none;
+            }
+        }
+    }
+    div.wakuinner{
+        padding:0px 20px 0px 20px;
+        clear:both;
+    }
+    #recruit{
+        div.wakuinner{
+            font-size:15px;
+            color:#DC0000;
+        }
+    }
+    .wakutop .title{
+        margin-left:36px;
+        margin-top:10px;
+    }
+    div.lbt{
+        width:120px;
+        border:solid 1px #666666;
+        background-color:#777777;
+        color:#DDDDDD;
+        text-align:center;
+        padding-top:8px;
+        padding-bottom:8px;
+        margin:5px;
+    }
+
+    dl{
+        width:100%;
+        padding:5px 0px 5px 0px;
+        margin:0px;
+    }
+
+    table.planning{
+        width:100%;
+        table-layout:fixed;
+        border:none;
+        border-collapse:collapse;
+        th,td{
+            border:solid 1px #FFBBBB;
+            padding:3px;
+            font-size:12px;
+        }
+    }
+    div.sl{
+        color:green;
+        float:none;
+        background-color:#EEEEEE;
+        padding:3px 0px 3px 0px;
+        display:none;
+    }
+    div.capt{
+        padding:5px 0px 5px 0px;
+        color:#666;
+        font-size:11px;
+    }
+    div.capt span,dt span{
+        color:#F00;
+    }
+    select,input{
+        width:100%;
+        font-size:13px;
+        text-align:left;
+    }
+
+    .sinfo{
+       border-bottom:solid 1px #FF0000;
+       float:none;
+       clear:both;
+       position:relative;
+       border:solid 1px #333333;
+    }
+    h3{
+        font-size:14px;
+        color:#440000;
+        float:left;
+        padding:2px;
+    }
+
+    p{
+        padding:0px;
+        margin:0px;
+        float:left;
+        font-size:13px;
+    }
+    #area{
+        width:250px;
+        font-size:12px;
+        margin:0px;
+        padding:0px;
+    }
+}

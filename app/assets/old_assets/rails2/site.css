@@ -1,0 +1,125 @@
+div#narrowarea{
+    float:left;
+    border:none;
+    width:204px;
+}
+div#widearea{
+    float:right;
+    border:none;
+    width:540px;
+}
+dl{
+   margin-left:20px;
+}
+dt{
+    background-color:#EAEAEA;
+    border-bottom:solid 2px #FF6600;
+    color:#333333;
+    font-size:12px;
+    padding:3px;
+    font-weight:bold;
+    background-image:url(/images/hnt.jpg);
+}
+dd{
+    color:#333333;
+    margin:5px 3px 8px 20px;
+    line-height:16px;
+    border-bottom: dotted 1px #AAAAAA;
+}
+dl.rob{
+    width:60%;
+    margin-left:10%;
+}
+dl.rob dt{
+    border:none;
+    padding:2px;
+}
+dl.sitemap dt{
+    float:none;
+    clear:both;
+    margin-top:10px;
+}
+dl.sitemap dd{
+    float:left;
+    width:45%;
+}
+span.sidemenu{
+    position:relative;
+    width:180px;
+    background-color:#333333;
+    border:solid 1px #FF0000;
+    color:#FFFFFF;
+    padding:10px;
+    margin:3px;
+    overflow:visible;
+    
+}
+a.sidemenu div{
+    position:relative;
+    width:180px;
+    background-color:#555555;
+    border:outset 1px #FF6600;
+    color:#FFFFFF;
+    padding:10px;
+    margin:6px;
+    overflow:visible;
+    cursor:pointer;
+    text-align:left;
+    background-image:url(/images/company/bindicator.gif);
+    background-position:right;
+    background-repeat:no-repeat;
+    text-decoration:none;
+}
+a.sidemenu:hover div{
+    background-color:#AAAAAA;
+    border:inset 1px #FF6600;
+}
+h1{
+    position:relative;
+    font-size:18px;
+    margin:10px 0px 10px 0px;
+    border-left:solid 24px #FF6600;
+    background-color:#EAEAEA;
+    background-image:url(/images/hn.jpg);
+    font-weight:bold;
+    color: #333333;
+    padding:5px;
+}
+h1 span {
+    color: #333333;
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+h2{
+    position:relative;
+    font-size:13px;
+    margin:15px 0px 5px 20px;
+    background-color:#EAEAEA;
+    background-image:url(/images/hn.jpg);
+    border-bottom:solid 2px #FF6600;
+    font-weight:bold;
+    color: #333333;
+    padding:2px;
+    float:none;
+    clear:both;
+}
+p{
+    margin-left:20px;
+    line-height:20px;
+}
+ul{
+    margin:0px;
+    margin-left:20px;
+    padding:5px;
+    
+}
+li{
+
+    padding:2px;
+    list-style-type:none;
+    margin:0px;
+    border-left:solid 1px #CCCCCC;
+    border-bottom:dotted 1px #DDDDDD;
+}

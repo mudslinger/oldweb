@@ -1,0 +1,10 @@
+.tab#recruit
+  =link_to(image_tag(nil,alt:"採用情報"),{controller: :recruit,action: :index})
+.tab#property
+  =link_to(image_tag(nil,alt:"物件募集"),{controller: :property,action: :index})
+
+.hidden-images
+  = image_tag64 "stab.gif",id:'stab',alt:"採用情報"
+  = image_tag64 "btab.gif",id:'btab',alt:"物件募集"
+  = image_tag64 "stabp.gif",id:'stabp',alt:"採用情報"
+  = image_tag64 "btabp.gif",id:'btabp',alt:"物件募集"

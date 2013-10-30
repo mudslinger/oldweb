@@ -1,0 +1,31 @@
+.box
+  .wakutop
+  .wakumiddle
+    .wakuinner
+      .capt
+        %span
+          ▼
+        住所一覧から検索
+      .capt
+        プルダウンメニューから選択してください
+      %select#area(name="area")
+        %option(label="--- 地域・都道府県を選択してください ---" value="all")
+          \--- 地域・都道府県を選択してください ---
+        - Area.sorted.each do |a|
+          %option{style:"border-bottom:solid 1px #EFEFEF;color:##{a.color};background-color:##{a.bg_color}",label: a.name,value: a.code}
+            =a.name
+    .wakuinner
+      .capt
+        %span
+          ▼
+        検索結果（店名をクリックしてください）
+      %dl(style="height:180px;overflow-y:scroll;overflow-x:hidden;border:inset 1px #cccccc;")
+        - Shop.simple.active.each do |d|
+          %dt.shops{id: "t#{d.id}"}
+            =link_to d.name,{action: :shop,id: d.id},{id: "a#{d.id}",name: "a#{d.id}"}
+            &nbsp;
+            %span{style: "color:#00AA11;"}
+              (TEL:#{d.phone})
+        %dt#t999999{style:"display:none;"}
+          &nbsp;
+  .wakubottom

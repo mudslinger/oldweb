@@ -1,0 +1,151 @@
+div#narrowarea{
+    float:left;
+    border:none;
+    width:205px;
+}
+div#widearea{
+    float:right;
+    border:none;
+    width:530px;
+}
+dl{
+   
+   margin-left:20px;
+}
+dt{
+    background-image:url(/images/hnt.jpg);
+    border-bottom:solid 2px #FF6600;
+    color:#333333;
+    font-size:12px;
+    padding:3px;
+    font-weight:bold;
+}
+dd{
+    color:#333333;
+    margin:5px 3px 8px 20px;
+    line-height:16px;
+    border-bottom: dotted 1px #AAAAAA;
+}
+
+
+a.sidemenu div{
+
+    background-color:#555555;
+    border:outset 1px #FF6600;
+    color:#FFFFFF;
+    padding:10px;
+    margin:6px;
+    overflow:visible;
+    cursor:pointer;
+    text-align:left;
+    background-image:url(/images/company/bindicator.gif);
+    background-position:right;
+    background-repeat:no-repeat;
+    text-decoration:none;
+}
+a.sidemenu:hover div{
+    background-color:#AAAAAA;
+    border:inset 1px #FF6600;
+}
+h1{
+    position:relative;
+    font-size:18px;
+    margin:10px 0px 10px 0px;
+    border-left:solid 24px #FF6600;
+    background-color:#EAEAEA;
+    background-image:url(/images/hn.jpg);
+    font-weight:bold;
+    color: #333333;
+    padding:5px;
+}
+h1 span {
+    color: #333333;
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+h2{
+    position:relative;
+    font-size:13px;
+    margin:5px 0px 5px 20px;
+    background-color:#EAEAEA;
+    background-image:url(/images/hn.jpg);
+    border-bottom:solid 2px #FF6600;
+    font-weight:bold;
+    color: #333333;
+    padding:2px;
+}
+p{
+    margin-left:20px;
+    line-height:20px;
+}
+table.history{
+    margin-left:20px;
+    border:none;
+    border-collapse:collapse;
+    table-layout:fixed;
+    color:#333333;
+    width:90%;
+}
+.history td, .history th{
+    border-bottom:dotted 1px #555555;
+    line-height:18px;
+}
+.history th{
+    background-color:#EEEEEE;
+    border-right:solid 1px #FF6600;
+    text-align:center;
+}
+.history td{
+    padding-left:10px;
+}
+table.graph{
+    width:93%;
+    table-layout:fixed;
+    border-collapse:collapse;
+
+}
+.graph th,.graph td{
+    border-bottom:dotted 1px #FF6600;
+    border-top:dotted 1px #FF6600;
+}
+.graph th{
+    background-color:#DDDDDD;
+    text-align:center;
+    font-weight:normal;
+    
+    color:#222222;
+}
+.graph tfoot td{
+    text-align:right;
+    color:#444444;
+    border:none;
+}
+.graph div{
+
+    text-align:right;
+    padding:3px;
+    margin-bottom:0px;
+    font-size:11px;
+    height:15px;
+    color:#000000;
+    float:left;
+}
+.graph div.sales{
+    background-image:url(/images/company/sales-bg.gif);
+    float:none;
+ }
+.graph div.profit{
+    background-image:url(/images/company/profit-bg.gif);
+    float:none;
+ }
+.graph div.shop-a{
+    background-image:url(/images/company/shop-a-bg.gif);
+ }
+.graph div.shop-b{
+    background-image:url(/images/company/shop-b-bg.gif);
+ }
+.graph div.total{
+    color:#555555;
+}
