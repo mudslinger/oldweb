@@ -1,20 +1,21 @@
-html.menu{
+@import 'mixins';
+body.menu{
   div#narrowarea{
       float:left;
       border:none;
       width:244px;
       div.wakutop{
-          background-image:url(/images/wakutop.gif);
+          @include bg("wakutop.gif");
           .title{
               margin-left:36px;
               margin-top:10px;
           }
       }
       div.wakumiddle{
-          background-image:url(/images/wakumiddle.gif);
+          @include bg("wakumiddle.gif");
       }
       div.wakubottom{
-          background-image:url(/images/wakubottom.gif);
+          @include bg("wakubottom.gif");
       }
   }
   div#widearea{
@@ -22,17 +23,17 @@ html.menu{
       border:none;
       width:510px;
       div.wakutop{
-          background-image:url(/images/wakultop.gif);
+          @include bg("wakultop.gif");
           .title{
               margin-left:36px;
               margin-top:10px;
           }
       }
       div.wakumiddle{
-          background-image:url(/images/wakulmiddle.gif);
+          @include bg("wakulmiddle.gif");
       }
       div.wakubottom{
-          background-image:url(/images/wakulbottom.gif);
+          @include bg("wakulbottom.gif");
       }
   }
 

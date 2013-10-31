@@ -1,0 +1,11 @@
+@mixin bg($url){
+    html.ie6 > &{
+        background-image:url($url);
+    }
+    html.ie7 > &{
+        background-image:url($url);
+    }
+    html.modearn > &{
+        background-image:asset-data-url($url);
+    }
+}

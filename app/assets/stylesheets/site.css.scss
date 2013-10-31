@@ -1,4 +1,5 @@
-html.site{
+@import 'mixins';
+body.site{
   div#narrowarea{
       float:left;
       border:none;
@@ -19,7 +20,7 @@ html.site{
       font-size:12px;
       padding:3px;
       font-weight:bold;
-      background-image:url(/images/hnt.jpg);
+      @include bg("hnt.jpg");
   }
   dd{
       color:#333333;
@@ -66,7 +67,7 @@ html.site{
       overflow:visible;
       cursor:pointer;
       text-align:left;
-      background-image:url(/images/company/bindicator.gif);
+      @include bg("company/bindicator.gif");
       background-position:right;
       background-repeat:no-repeat;
       text-decoration:none;
@@ -81,7 +82,7 @@ html.site{
       margin:10px 0px 10px 0px;
       border-left:solid 24px #FF6600;
       background-color:#EAEAEA;
-      background-image:url(/images/hn.jpg);
+      @include bg("hn.jpg");
       font-weight:bold;
       color: #333333;
       padding:5px;
@@ -98,7 +99,7 @@ html.site{
       font-size:13px;
       margin:15px 0px 5px 20px;
       background-color:#EAEAEA;
-      background-image:url(/images/hn.jpg);
+      @include bg("hn.jpg");
       border-bottom:solid 2px #FF6600;
       font-weight:bold;
       color: #333333;

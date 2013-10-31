@@ -1,4 +1,5 @@
-html.company{
+@import 'mixins';
+body.company{
   div#narrowarea{
       float:left;
       border:none;
@@ -13,7 +14,7 @@ html.company{
      margin-left:20px;
   }
   dt{
-      background-image:asset-data-url("hnt.jpg");
+      @include bg("hnt.jpg");
       border-bottom:solid 2px #FF6600;
       color:#333333;
       font-size:12px;
@@ -36,7 +37,7 @@ html.company{
         overflow:visible;
         cursor:pointer;
         text-align:left;
-        background-image:asset-data-url("company/bindicator.gif");
+        @include bg("company/bindicator.gif");
         background-position:right;
         background-repeat:no-repeat;
         text-decoration:none;
@@ -58,7 +59,7 @@ html.company{
       margin:10px 0px 10px 0px;
       border-left:solid 24px #FF6600;
       background-color:#EAEAEA;
-      background-image:asset-data-url("hn.jpg");
+      @include bg("hn.jpg");
       font-weight:bold;
       color: #333333;
       padding:5px;
@@ -75,7 +76,7 @@ html.company{
     font-size:13px;
     margin:5px 0px 5px 20px;
     background-color:#EAEAEA;
-    background-image:asset-data-url("hn.jpg");
+    @include bg("hn.jpg");
     border-bottom:solid 2px #FF6600;
     font-weight:bold;
     color: #333333;
@@ -137,18 +138,18 @@ html.company{
       float:left;
     }
     .sales{
-      background-image:asset-data-url("company/sales-bg.gif");
+      @include bg("company/sales-bg.gif");
       float:none;
     }
     .profit{
-      background-image:asset-data-url("company/profit-bg.gif");
+      @include bg("company/profit-bg.gif");
       float:none;
     }
     .shop-a{
-      background-image:asset-data-url("company/shop-a-bg.gif");
+      @include bg("company/shop-a-bg.gif");
     }
     .shop-b{
-      background-image:asset-data-url("company/shop-b-bg.gif");
+      @include bg("company/shop-b-bg.gif");
     }
     .total{
       color:#555555;

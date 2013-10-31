@@ -14,10 +14,12 @@
 @import 'site';
 @import 'ticker-style';
 
+@import 'mixins';
+
 body{
     margin: 0px;
     background-color: #EEEEEE;
-    background-image:asset-data-url("bg.jpg");
+    @include bg("bg.jpg");
     background-repeat:repeat-x;
     text-align:center;
     font-family: "ＭＳ Ｐゴシック", "Osaka";
@@ -100,7 +102,7 @@ a:hover {
   text-decoration:underline;
 }
 div#menu{
-    background-image:asset-data-url("button.jpg");
+    @include bg("button.jpg");
     text-align:center;
     width:100%;
     padding:0px;
@@ -108,7 +110,7 @@ div#menu{
     span{
         float:left;
         text-align:center;
-        background-image:asset-data-url("button.jpg");
+        @include bg("button.jpg");
         width:150px;
         padding-top:8px;
         padding-bottom:8px;
@@ -127,7 +129,7 @@ div#menu{
 
 div#buttond{
     border-top:1px solid #999999;
-    background-image:asset-data-url("buttond.jpg");
+    @include bg("buttond.jpg");
     height:5px;
 }
 #scbox {
@@ -180,7 +182,7 @@ div#footnavi{
 
 div#foot{
     background-color:#555555;
-    background-image:asset-data-url("footbg.jpg");
+    @include bg("footbg.jpg");
     color:#DDDDDD;
     text-align:center;
     margin:0px;

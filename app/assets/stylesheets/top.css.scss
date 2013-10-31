@@ -1,16 +1,17 @@
-html.top{
+@import 'mixins';
+body.top{
   div#narrowarea{
     float:right;
     border:none;
     width:294px;
     div.wakutop{
-      background-image:asset-data-url("wakutop.gif");
+      @include bg("wakutop.gif");
     }
     div.wakumiddle{
-      background-image:asset-data-url("wakumiddle.gif");
+      @include bg("wakumiddle.gif");
     }
     div.wakubottom{
-      background-image:asset-data-url("wakubottom.gif");
+      @include bg("wakubottom.gif");
     }
   }
   div#widearea{
@@ -18,13 +19,13 @@ html.top{
     border:none;
     width:460px;
     div.wakutop{
-      background-image:asset-data-url("wakultop.gif");
+      @include bg("wakultop.gif");
     }
     div.wakumiddle{
-      background-image:asset-data-url("wakulmiddle.gif");
+      @include bg("wakulmiddle.gif");
     }
     div.wakubottom{
-      background-image:asset-data-url("wakulbottom.gif");
+      @include bg("wakulbottom.gif");
     }
   }
 
@@ -33,7 +34,7 @@ html.top{
     height:50px;
     background-position: bottom;
     background-repeat:no-repeat;
-    background-image:asset-data-url("wakuue.gif");
+    @include bg("wakuue.gif");
   }
 
   h3.matitle{

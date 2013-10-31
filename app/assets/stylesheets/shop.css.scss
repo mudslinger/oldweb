@@ -1,4 +1,5 @@
-html.shop{
+@import 'mixins';
+body.shop{
     div#narrowarea{
         float:left;
         border:none;
@@ -6,14 +7,14 @@ html.shop{
         padding:0px;
         width:294px;
         div.wakutop{
-            background-image:asset-data-url("wakutop.gif");
+            @include bg("wakutop.gif");
             height:11px;
         }
         div.wakumiddle{
-            background-image:asset-data-url("wakumiddle.gif");
+            @include bg("wakumiddle.gif");
         }
         div.wakubottom{
-            background-image:asset-data-url("wakubottom.gif");
+            @include bg("wakubottom.gif");
         }
         dt{
             width: 100%;
@@ -38,13 +39,13 @@ html.shop{
         padding:0px;
         width:460px;
         div.wakutop{
-            background-image:asset-data-url("wakultop.gif");
+            @include bg("wakultop.gif");
         }
         div.wakumiddle{
-            background-image:asset-data-url("wakulmiddle.gif");
+            @include bg("wakulmiddle.gif");
         }
         div.wakubottom{
-            background-image:asset-data-url("wakulbottom.gif");
+            @include bg("wakulbottom.gif");
         }
         dt{
             color:#666666;
@@ -57,13 +58,13 @@ html.shop{
         }
         #news{
             div.wakutop{
-                background-image:asset-data-url("wakultop_news.gif");
+                @include bg("wakultop_news.gif");
             }
             div.wakumiddle{
-                background-image:asset-data-url("wakulmiddle_news.gif");
+                @include bg("wakulmiddle_news.gif");
             }
             div.wakubottom{
-                background-image:asset-data-url("wakulbottom_news.gif");
+                @include bg("wakulbottom_news.gif");
             }
             .wakuinner a{
                 color:white;
