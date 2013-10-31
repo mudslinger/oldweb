@@ -87,7 +87,9 @@ module ApplicationHelper
   def image_cache(source: nil,insteadof: '', options: {},request: nil)
 
     agent = Agent.new(request.user_agent)
+
     use_data_uri = !(agent.name.to_s == 'IE')
+    puts "-#-#-#-#=##{agent.name.to_s} -#-#{use_data_uri}"
     subkey = use_data_uri ? 'data-uri:' : 'plain:'
     src = Rails.cache.read(IMG_CACHE_PREFIX + subkey + source)
     puts "cache:hit! ---#{IMG_CACHE_PREFIX + subkey + source}---" if src
@@ -102,7 +104,7 @@ module ApplicationHelper
       real_path = File.exist?(facade_path) ? facade_path : ins_path
 
       #実際のパス上に存在するファイルサイズが一定以上の場合、data-uriは使用しない。
-      use_data_uri = File.exist?(facade_path) && File.size(real_path) < 50 * 1024
+      use_data_uri = use_data_uri && File.exist?(facade_path) && File.size(real_path) < 50 * 1024
 
       src = image2datauri(real_path) if use_data_uri && !real_path.blank?
       src = File.exist?(facade_path) ? source : insteadof unless use_data_uri

@@ -5,6 +5,9 @@
     html.ie7 > &{
         background-image:url($url);
     }
+    html.ie8 > &{
+        background-image:asset-data-url($url);
+    }
     html.modearn > &{
         background-image:asset-data-url($url);
     }

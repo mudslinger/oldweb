@@ -19,21 +19,11 @@ class ShopController < ApplicationController
     area = @shop.areas.first if @shop.present?
     @area_code = area.code if area.present?
     #javascript用データ
-    @areamap = areas
+    #@areamap = areas
   end
 
   alias_method :index,:shop
   anot :index , parent: 'top#index',title:'店舗情報',pattern: 'shop(.:format)'
 
-  private
-  def areas
-    ret = {}
-    Area.all.each do |a|
-      ss = a.shops.map do |s|
-        s.id
-      end
-      ret[a.code] = ss
-    end
-    ret
-  end
+
 end
