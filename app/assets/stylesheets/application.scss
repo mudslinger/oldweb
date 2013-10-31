@@ -1,14 +1,17 @@
-//@import "compass";
-@import url(company.css);
-@import url(ir.css);
-
-@import url(shop.css);
-@import url(menu.css);
-@import url(top.css);
-@import url(property.css);
-@import url(recruit.css);
-@import url(site.css);
-
+/*
+ *
+ *= require_self
+ */
+@import "compass";
+@import "compass/reset";
+@import 'company';
+@import 'ir';
+@import 'shop';
+@import 'menu';
+@import 'top';
+@import 'property';
+@import 'recruit';
+@import 'site';
 @import url(ticker-style.css);
 
 body{
@@ -291,9 +294,7 @@ div#flash_message{
     color:black;
     font-size:15px;
     z-index:0;
-    filter:alpha(opacity=90);
-    -moz-opacity:0.90;
-    opacity:0.90;
+    @include opacity(0.9);
     text-align:center;
 }
 div.hidden-images{

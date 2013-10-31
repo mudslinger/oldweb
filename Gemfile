@@ -11,7 +11,6 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -45,7 +44,9 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'static_map'
-gem 'compass', branch: "rails4"
 gem 'user-agent'
 gem 'nokogiri'
 gem 'rest-client'
+
+gem 'compass'#, "~> 0.13.alpha.10"
+gem "compass-rails", "~> 2.0.alpha.0"
