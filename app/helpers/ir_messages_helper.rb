@@ -1,0 +1,2 @@
+module IrMessagesHelper
+end

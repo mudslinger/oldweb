@@ -1,0 +1,33 @@
+= form_for @feedback do |f|
+  - if @feedback.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@feedback.errors.count, "error")} prohibited this feedback from being saved:"
+      %ul
+        - @feedback.errors.full_messages.each do |msg|
+          %li= msg
+  %dl
+    %dd
+      =f.label :name ,class: :required
+      =f.text_field :name,:size => 15
+      =f.label :age
+      =f.text_field :age
+      =f.label :male
+      =f.select :male,{'男性' => true, '女性' => false},include_blank: '----'
+    %dd
+      =f.label :mail_addr
+      =f.text_field :mail_addr
+    %dd
+      =f.label :address
+      =f.text_field :address
+    %dd
+      =f.label :phone
+      =f.text_field :phone
+    %dd
+      =f.label :shop_id
+      =f.collection_select :shop_id,Shop.active,:id,:name
+      %button#search_shop{'data-href' => url_for(action: :search),:type => 'button'} 店舗を検索
+      =f.hidden_field :lat,id: :lat
+      =f.hidden_field :lng,id: :lng
+  .actions
+    = f.submit 'Save'
+  #aja{title:'お近くの店舗を表示しています'}

@@ -1,4 +1,7 @@
 class IrController < ApplicationController
+
+  before_action :set_ir_message, only: [:contact,:send_message]
+
   anot :index , parent: 'top#index',title:'株主・投資家の皆様へ'
   def index
   end
@@ -25,48 +28,61 @@ class IrController < ApplicationController
     @body = transrate_irlib
     render 'library'
   end
-  #map.connect 'ir/library/:year.html',:controller => "ir",:action => "past_library"
+
   anot :past_library ,parent: 'ir#library', title: 'IRカレンダー/ライブラリ',pattern: 'ir/library/:year(.:format)'
   def past_library
     params["template"] = "press1"
     @body = transrate_irlib
     render 'library'
   end
+
   anot :stock , parent: 'ir#index',title:'株式情報'
-  def stock
-  end
+
   anot :market , parent: 'ir#index',title:'株価情報'
-  def market
-  end
+
   anot :contact , parent: 'ir#index',title:'IRお問い合わせ'
-  def contact
-    #@ir_message = IrMessage.new(params[:ir_message])
+
+  def send_message
+    @ir_message = IrMessage.new(ir_message_params)
+    if @ir_message.save
+
+        #TODO:メール送信はsidekiqに移行させるがとりあえず同期処理
+        #まだ送られていない案件をすべて送信する
+        # IrMessage.not_sent.each do |i|
+        #   i.report unless i.reported?
+        # end
+        redirect_to url_for(action: :contact),notice: "メッセージありがとうございます。"
+    else
+        render action: :contact,notice: "エラーです"
+    end
   end
 
   anot :disclaimer , parent: 'ir#index',title:'免責事項'
   def disclaimer
   end
 
-  def ses_send(m)
-    ses = AWS::SES::Base.new(
-      :access_key_id => 'AKIAI2Q5IAVIWTLA2SKA',
-      :secret_access_key => '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')
+  private
+  def set_ir_message
+    @ir_message = if params[:id].present? then
+      IrMessage.find(params[:id])
+    else
+      IrMessage.new
+    end
+  end
 
-    ses.send_email(
-      :to        => 'ir@yamaokaya.com',
-      :source    => 'info@yamaokaya.com',
-      :subject   => "IR問い合わせメール(#{m.id})",
-      :text_body => m.body_raw
+  def ir_message_params
+    params.require(:ir_message).permit(
+        :name,
+        :name_f,
+        :company_name,
+        :company_name_f,
+        :mail_addr,
+        :address,
+        :message,
+        :phone
     )
   end
 
-
-  def message
-
-  end
-
-
-  private
   def transrate_irlib
     params["code"] = 3399 if not params["code"]
     params["ln"] = "ja" if not params["ln"]

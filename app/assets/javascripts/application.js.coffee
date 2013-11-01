@@ -2,6 +2,9 @@
 #= require jquery_ujs
 #= require_tree .
 #= require jquery.ticker
+#= require jquery.ui.resizable
+#= require jquery.ui.selectable
+#= require jquery.ui.dialog
 #= require jquery.ui.map.full.min
 
 $ ->
@@ -16,3 +19,6 @@ $ ->
     $(@).find('img').attr('src',$('#btabp').attr('src'))
   ,->
     $(@).find('img').attr('src',$('#btab').attr('src'))
+
+  $("#modal").dialog() if $("#modal")
+  $("#error_explanation").dialog() if $("#error_explanation")

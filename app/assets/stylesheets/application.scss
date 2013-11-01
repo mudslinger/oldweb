@@ -13,8 +13,10 @@
 @import 'recruit';
 @import 'site';
 @import 'ticker-style';
-
+@import 'jquery.ui.all';
 @import 'mixins';
+
+
 
 body{
     margin: 0px;
@@ -269,35 +271,24 @@ div.tlink{
         font-size:12px;
     }
 }
-div.tlink{
-    .fieldWithErrors{
-        input,textarea,optgroup{
-            background-color:#FFCCCC;
-        }
-    }
-}
 
-.fieldWithErrors{
+.field_with_errors{
     display:inline;
+    label{
+        color: #FF4444;
+    }
+    input,textarea,optgroup{
+        background-color:#FFCCCC;
+    }
 }
 .formError{
     color:#FF6666;
 }
-div#flash_message{
-    position:absolute;
-    top:10%;
-    left:20%;
-    padding:100px 30px 30px 30px;
-    margin:0px;
-    width:55%;
-    height:200px;
-    background-color:#EEEEEE;
-    border:outset 1px #EEEEEE;
-    color:black;
-    font-size:15px;
-    z-index:0;
-    @include opacity(0.9);
-    text-align:center;
+
+label.required:before{
+    color:#FF0000;
+    font-size:12px;
+    content:"※"
 }
 div.hidden-images{
     display:none;

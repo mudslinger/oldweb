@@ -5,12 +5,14 @@
 /[if gt IE 8] <!--> <html class="modearn" lang="ja"> <!--
 %head
   = stylesheet_link_tag("application",media: "all")
+  %script{type:"text/javascript",src:"http://www.google.com/jsapi"}
+  %script{type:"text/javascript",src:"http://maps.google.com/maps/api/js?sensor=true"}
   = javascript_include_tag("application")
-  = yield(:ext_js) if content_for?(:ext_js)
   = csrf_meta_tags
+  = yield(:ext_js) if content_for?(:ext_js)
   =#render(:partial => "/layouts/meta")
   =#render(:partial => "/layouts/ext_load")
-  %title=title(self)
+  %title=title(self) if title(self)
   :javascript
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -45,4 +47,6 @@
               #foot
                 Copyright #{Date.today.year} Maruchiyo YAMAOKAYA Corp. All Rights Reserved.
     = render(:partial => "/layouts/tab")
+  - if flash[:notice]
+    #modal{title: 'お知らせ'}= flash[:notice]
 != "</html>"

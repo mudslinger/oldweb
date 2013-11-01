@@ -11,7 +11,12 @@ module ApplicationHelper
   #タイトルの表示
   def title(obj)
     key = "#{obj.controller_name}##{obj.action_name}"
-    sitemap[key][:title]
+    puts key
+    begin
+      sitemap[key][:title]
+    rescue
+      ''
+    end
   end
 
   #サイドリンクの表示

@@ -1,0 +1,17 @@
+%h1 Listing ir_messages
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @ir_messages.each do |ir_message|
+    %tr
+      %td= link_to 'Show', ir_message
+      %td= link_to 'Edit', edit_ir_message_path(ir_message)
+      %td= link_to 'Destroy', ir_message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ir message', new_ir_message_path

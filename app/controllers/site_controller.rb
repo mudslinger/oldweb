@@ -4,5 +4,5 @@ class SiteController < ApplicationController
   def sitemap
     @sitemap = generate_sitemap
   end
-
+  anot :about , parent: 'top#index',title:'このホームページについて'
 end

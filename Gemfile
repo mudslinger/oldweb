@@ -47,6 +47,7 @@ gem 'static_map'
 gem 'user-agent'
 gem 'nokogiri'
 gem 'rest-client'
-
+gem 'aws-ses'
 gem 'compass'#, "~> 0.13.alpha.10"
 gem "compass-rails", "~> 2.0.alpha.0"
+gem 'jquery-ui-rails'

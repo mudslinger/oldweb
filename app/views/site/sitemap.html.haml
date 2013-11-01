@@ -1,15 +1,16 @@
-- p = [:controller,:action,:id,:page,:format]
-%ul
-  %li
-    = link_to @sitemap[:title],@sitemap.select{ |k,v| p.include? k}
-    %ul
-      - @sitemap[:children].each do |s|
-        %li
-          = link_to s[:title],s.select{ |k,v| p.include? k}
-          %ul
-            - s[:children].each do |s2|
-              %li
-                = link_to s2[:title],s2.select{ |k,v| p.include? k}
+-cache do
+  - p = [:controller,:action,:id,:page,:format]
+  %ul
+    %li
+      = link_to @sitemap[:title],@sitemap.select{ |k,v| p.include? k}
+      %ul
+        - @sitemap[:children].each do |s|
+          %li
+            = link_to s[:title],s.select{ |k,v| p.include? k}
+            %ul
+              - s[:children].each do |s2|
+                %li
+                  = link_to s2[:title],s2.select{ |k,v| p.include? k}
 
-            - end if s[:children]
-      - end if @sitemap[:children]
+              - end if s[:children]
+        - end if @sitemap[:children]

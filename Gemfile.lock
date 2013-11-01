@@ -27,6 +27,11 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    aws-ses (0.5.0)
+      builder
+      mail (> 2.2.5)
+      mime-types
+      xml-simple
     builder (3.1.4)
     chunky_png (1.2.9)
     coffee-rails (4.0.1)
@@ -60,6 +65,8 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.1.0)
+      railties (>= 3.1.0)
     json (1.8.1)
     libv8 (3.16.14.3)
     mail (2.5.4)
@@ -128,17 +135,20 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     user-agent (1.0.0)
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-ses
   coffee-rails (~> 4.0.0)
   compass
   compass-rails (~> 2.0.alpha.0)
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-ui-rails
   mysql2
   nokogiri
   rails (= 4.0.0)

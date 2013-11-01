@@ -1,0 +1,8 @@
+- content_for(:layout_inner) do
+  #widearea
+    = yield
+  #narrowarea
+    = link_to raw("<div>山岡家HPについて</div>"),{:action => "about"},{:class => "sidemenu"}
+    = link_to raw("<div>サイトマップ</div>"),{:action => "sitemap"},{:class => "sidemenu"}
+
+=render :template => "layouts/application"

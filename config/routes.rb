@@ -1,5 +1,9 @@
 
 Oldweb::Application.routes.draw do
+  resources :feedbacks
+  get 'feedbacks_search' => 'feedbacks#search'
+  resources :ir_messages
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -73,9 +77,15 @@ Oldweb::Application.routes.draw do
   RecruitController.route_keys do |path,key|
     get path => key
   end
+
+  #IR
+
   IrController.route_keys do |path,key|
     get path => key
   end
+
+  post 'ir/contact' => 'ir#send_message'
+
   SiteController.route_keys do |path,key|
     get path => key
   end
