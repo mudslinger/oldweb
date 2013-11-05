@@ -1,0 +1,18 @@
+%h1
+  最新情報一覧
+%div{style:"float:left;width:47%;"}
+  %h2 TOPICS
+  %dl
+  - NewsRelease.promo.newest(25).each do |t|
+    %dt
+      #{t.release_date.year}年#{t.release_date.month}月
+    %dd
+      =link_to "#{t.title}(#{t.release_date.month}/#{t.release_date.day})",h(t.url),target: '_blank'
+%div{style:"float:right;width:47%;"}
+  %h2 IR
+  %dl
+  - NewsRelease.ir.newest(25).each do |t|
+    %dt
+      #{t.release_date.year}年#{t.release_date.month}月
+    %dd
+      =link_to "#{t.title}(#{t.release_date.month}/#{t.release_date.day})",h(t.url),target: '_blank'

@@ -1,5 +1,39 @@
 @import 'mixins';
 body.shop{
+
+    table.shops{
+        empty-cells:show;
+        border-collapse:collapse;
+        border:solid 1px #CCCCCC;
+        width:100%;
+        col{
+            &.name{
+                font-weight:bold;
+            }
+            &.phone{
+                text-align:center;
+            }
+        }
+        td,th{
+            border:solid 1px #CCCCCC;
+            padding:2px;
+        }
+        .area{
+            font-size:14px;
+            font-weight:bold;
+            text-align:left;
+            background-color:#FFDDDD;
+            .shops_count{
+                color:#555555;
+                font-size:12px;
+            }
+        }
+        .area:before{
+            color:#FF0000;
+            font-size:14px;
+            content:"▼";
+        }
+    }
     div#narrowarea{
         float:left;
         border:none;

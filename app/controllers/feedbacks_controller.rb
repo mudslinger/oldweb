@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
   def search
     lat = params[:lat]
     lng = params[:lng]
-    @shops = Shop.nearlest_4(lat,lng)
+    @shops = Shop.nearest(lat,lng,4)
   end
 
   def index

@@ -13,9 +13,9 @@ class Shop < ActiveRecord::Base
   scope :simple, -> {
     select(:id,:name,:phone,:address)
   }
-  scope :nearlest_4, ->(lat,lng) {
+  scope :nearest, ->(lat,lng,limit=4) {
     where("sqrt(power((lat*111-#{lat}*111),2)+ power((lng*91-#{lng}*91),2)) < 30").
     order("sqrt(power((lat*111-#{lat}*111),2)+ power((lng*91-#{lng}*91),2))").
-    limit(4)
+    limit(limit)
   }
 end

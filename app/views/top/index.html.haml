@@ -25,17 +25,11 @@
         :javascript
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
       .wakuinner
-        .fb-like-box{"data-href" => "http://www.facebook.com/yamaokaya",
-          "data-width" => 250,
-          "data-height" => 380,
-          "data-show-faces" => false,
-          "data-stream" => true,
-          "data-show-border"=> false,
-          "data-header" => false}
+        .fb-like-box(data-href="http://www.facebook.com/yamaokaya" data-width="250" data-height="380" data-show-faces="false" data-stream="true" data-show-border="false" data-header="false")
       .wakuinner
         =link_to image_tag64("index_banner01.jpg",alt: "ご意見・ご感想をお聞かせください" ,style: "margin:3px;"),{action: :index,controller: :feedbacks}
-        =link_to image_tag64("index_banner02.jpg",alt: "お得なクーポン・情報が届く携帯会員登録はこちら！" ,style:"margin:3px;") ,"http://coupon.yamaokaya.com/bm/p/f/tf.php?id=join",{:popup => true}
-        =link_to image_tag("index_banner04.jpg",alt:"山岡家でマイルをゲット！" ,style:"margin:3px;") ,"http://ana.jp-anex.co.jp/gourmet/",{:popup => true}
+        =link_to image_tag64("index_banner02.jpg",alt: "お得なクーポン・情報が届く携帯会員登録はこちら！" ,style:"margin:3px;") ,"http://coupon.yamaokaya.com/bm/p/f/tf.php?id=join",{:target => "_blank"}
+        =link_to image_tag("index_banner04.jpg",alt:"山岡家でマイルをゲット！" ,style:"margin:3px;") ,"http://ana.jp-anex.co.jp/gourmet/",{:target => "_blank"}
     .wakubottom
 #widearea
   .box
@@ -57,7 +51,7 @@
     .wakutop
       .ttt
         %h2.wakutitle 最新情報
-        =link_to image_tag64("list.gif",alt:"最新情報一覧"),{:action=>"index"},{title: "最新情報一覧",class: "list"}
+        =link_to image_tag64("list.gif",alt:"最新情報一覧"),{action: :index,controller: :news},{title: "最新情報一覧",class: "list"}
     .wakumiddle
       .wakuinner
         %table.news{summary:"最新情報"}

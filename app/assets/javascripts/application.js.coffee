@@ -7,6 +7,7 @@
 #= require jquery.ui.dialog
 #= require jquery.leanModal.min
 #= require jquery.ui.map.full.min
+#= require swfobject
 
 $ ->
   $(".tab#recruit").find('img').attr('src',$('#stab').attr('src'))

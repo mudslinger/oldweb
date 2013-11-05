@@ -8,4 +8,7 @@ class NewsRelease < ActiveRecord::Base
   scope :promo, -> {
     where(news_type: 0)
   }
+  scope :newest, ->(num=30){
+    order(:release_date).last(num).reverse
+  }
 end

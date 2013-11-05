@@ -61,6 +61,7 @@ class IrController < ApplicationController
   def disclaimer
   end
 
+
   private
   def set_ir_message
     @ir_message = if params[:id].present? then

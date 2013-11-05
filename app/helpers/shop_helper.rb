@@ -1,7 +1,7 @@
 module ShopHelper
   def areas
     ret = {}
-    Area.all.each do |a|
+    Area.active.each do |a|
       ss = a.shops.map do |s|
         s.id
       end

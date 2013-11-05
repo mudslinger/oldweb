@@ -1,0 +1,17 @@
+%table.shops
+  %caption 店舗一覧
+  %col.name{width:'23%'}
+  %col.phone{width:'20%'}
+  %col.address{width:'*'}
+  %thead
+  %tbody
+    - @areas.each do |a|
+      %tr
+        %th.area{colspan:3}
+          #{a.name}
+          =#%span.shops_count (全#{a.shops.count}店舗)
+      - a.shops.each do |s|
+        %tr
+          %td= link_to s.name,action: :shop,id: s.id
+          %td= s.phone
+          %td 〒#{s.zip} #{s.address}

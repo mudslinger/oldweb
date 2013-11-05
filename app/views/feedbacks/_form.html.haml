@@ -38,7 +38,7 @@
     %dt ご来店時の状況
     %dd
       =f.label :shop_id
-      =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.sorted,:shops, :name, :id, :name),include_blank: '----'
+      =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.active.sorted,:shops, :name, :id, :name),include_blank: '----'
       %button#search_shop{'data-href' => url_for(action: :search),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
     %dd
       =f.label :visit_date

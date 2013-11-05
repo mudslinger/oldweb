@@ -1,5 +1,13 @@
 class ShopController < ApplicationController
 
+  def shops
+    @shops = Shop.active
+    @areas = Area.level1.active
+    respond_to{ |format|
+      format.kml{render kml:@shops }
+      format.html
+    }
+  end
 
   anot :shop , parent: 'shop#index',title:'店舗情報',pattern: 'shop/:id(.:format)',valiation: ->{
     Shop.active.map do |s|
@@ -18,8 +26,6 @@ class ShopController < ApplicationController
     @shop = Shop.find(id) if id
     area = @shop.areas.first if @shop.present?
     @area_code = area.code if area.present?
-    #javascript用データ
-    #@areamap = areas
   end
 
   alias_method :index,:shop

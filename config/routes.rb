@@ -8,10 +8,7 @@
 # DELETE   /feedbacks/:id(.:format)  feedbacks#destroy
 Oldweb::Application.routes.draw do
   #resources :feedbacks
-  get 'feedbacks(.:format)' => 'feedbacks#index'
-  post 'feedbacks(.:format)' => 'feedbacks#send_message'
 
-  get 'feedbacks_search' => 'feedbacks#search'
   #resources :ir_messages
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -78,6 +75,10 @@ Oldweb::Application.routes.draw do
   ShopController.route_keys do |path,key|
     get path => key
   end
+
+  get '/shops(.:format)' => 'shop#shops'
+
+
   MenuController.route_keys do |path,key|
     get path => key
   end
@@ -96,7 +97,18 @@ Oldweb::Application.routes.draw do
 
   post 'ir/contact' => 'ir#send_message'
 
+  #feedbacks
+  get 'feedbacks(.:format)' => 'feedbacks#index'
+  post 'feedbacks(.:format)' => 'feedbacks#send_message'
+  get 'feedbacks_search' => 'feedbacks#search'
+
+  #site
   SiteController.route_keys do |path,key|
+    get path => key
+  end
+
+  #news
+  NewsController.route_keys do |path,key|
     get path => key
   end
   # get 'company/index' => 'company#index'
