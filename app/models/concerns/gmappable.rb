@@ -19,6 +19,25 @@ module Gmappable
     )
   end
 
+  def small_static_map
+    StaticMap::Image.new(
+      {
+        size: '120x120',
+        sensor: false,
+        markers: [{
+          latitude: self.lat,
+          longitude: self.lng,
+          color: "red",
+          label: "Y"}],
+        maptype: 'road',
+        zoom: self.zoom-2,
+        title: self.name,
+        alt:  self.name,
+        name: self.name
+      }
+    )
+  end
+
   def latlng
     "#{lat},#{lng}"
   end

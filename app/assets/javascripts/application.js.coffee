@@ -5,6 +5,7 @@
 #= require jquery.ui.resizable
 #= require jquery.ui.selectable
 #= require jquery.ui.dialog
+#= require jquery.leanModal.min
 #= require jquery.ui.map.full.min
 
 $ ->

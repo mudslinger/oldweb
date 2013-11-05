@@ -12,8 +12,8 @@ class CreateFeedbacks < ActiveRecord::Migration
       t.float :lng,null:true
       t.string :region,null:true
       t.integer :shop_id,null:true
-      t.date :visit_time,null:true
-      t.date :visit_time,null:true
+      t.date :visit_date,null:true
+      t.integer :visit_time,null:true
       t.integer :repetition,null:true
       t.integer :menu_id,null:true
       t.integer :q,null:true
@@ -22,6 +22,7 @@ class CreateFeedbacks < ActiveRecord::Migration
       t.integer :a,null:true
       t.boolean :reply,null:false
       t.text :message,null:false
+      t.boolean :mail_sent ,null:false,default: false
       t.timestamps
     end
   end

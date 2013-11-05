@@ -1,33 +1,123 @@
-= form_for @feedback do |f|
+- colors = ['BBBBFF','BBBBDD','CCCCCC','DDBBBB','FFBBBB'].reverse
+= form_for @feedback,url:{action: :send_message} do |f|
   - if @feedback.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@feedback.errors.count, "error")} prohibited this feedback from being saved:"
-      %ul
-        - @feedback.errors.full_messages.each do |msg|
-          %li= msg
+    #error_explanation{title:"#{@feedback.errors.count}件のエラーがあります。"}
+      - @feedback.errors.full_messages.each do |msg|
+        %li= msg
+  .readme_first{style:'margin:3px;'}
+    %p
+      山岡家では、お客様のご意見に基づいて、より良い味・より良いサービスを追求しております。
+      ぜひ、お客様の率直なご意見をお聞かせください。
+    %p
+      アンケートのご協力を頂いた方には抽選で粗品を進呈いたします。 ご協力をお願いいたします。
+    %p
+      %span{style:"color:red;"}
+        ※
+      印がついている項目は必ずご入力頂き、その他につきましては差支えのない範囲でお答え下さい。
   %dl
+    %dt お客様について
     %dd
       =f.label :name ,class: :required
       =f.text_field :name,:size => 15
       =f.label :age
-      =f.text_field :age
+      =f.select :age,age_opts,include_blank: '----'
       =f.label :male
       =f.select :male,{'男性' => true, '女性' => false},include_blank: '----'
     %dd
-      =f.label :mail_addr
+      =f.label :mail_addr,class: :required
       =f.text_field :mail_addr
+      %br
+      =f.label :mail_addr_confirmation,class: :required
+      =f.text_field :mail_addr_confirmation
     %dd
       =f.label :address
       =f.text_field :address
     %dd
       =f.label :phone
       =f.text_field :phone
+    %dt ご来店時の状況
     %dd
       =f.label :shop_id
-      =f.collection_select :shop_id,Shop.active,:id,:name
-      %button#search_shop{'data-href' => url_for(action: :search),:type => 'button'} 店舗を検索
+      =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.sorted,:shops, :name, :id, :name),include_blank: '----'
+      %button#search_shop{'data-href' => url_for(action: :search),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
+    %dd
+      =f.label :visit_date
+      =f.date_select :visit_date,{date_separator: '/',start_year:1.years.ago.year,end_year:1.years.since.year,use_month_numbers:true,default:Time.now}
+      =f.label :visit_time
+      =f.select :visit_time,time_opts,include_blank: '----'
+      =f.label :repetition
+      =f.select :repetition,rep_opts,include_blank: '----'
       =f.hidden_field :lat,id: :lat
       =f.hidden_field :lng,id: :lng
-  .actions
-    = f.submit 'Save'
+      =f.hidden_field :ip_addr
+    %dt お食事・サービス等について
+    %dd
+      =f.label :menu_id
+      =f.select :menu_id,option_groups_from_collection_for_select(Genre.order_by_sort,:menus, :name, :id, :name),include_blank: '----'
+
+    %dd.rdo
+      =f.label :q
+      %br
+      - (0..4).each do |i|
+        %span{style:"border-color:##{colors[i]};"}
+          =f.radio_button :q,i-2
+          =f.label "q_#{i-2}"
+      %span.l
+        =f.radio_button :q,nil
+        =f.label :q_nil
+      %br{style:'clear:both;'}
+    %dd.rdo
+      =f.label :s
+      %br
+      - (0..4).each do |i|
+        %span{style:"border-color:##{colors[i]};"}
+          =f.radio_button :s,i-2
+          =f.label "s_#{i-2}"
+      %span.l
+        =f.radio_button :s,nil
+        =f.label :s_nil
+      %br{style:'clear:both;'}
+    %dd.rdo
+      =f.label :c
+      %br
+      - (0..4).each do |i|
+        %span{style:"border-color:##{colors[i]};"}
+          =f.radio_button :c,i-2
+          =f.label "c_#{i-2}"
+      %span.l
+        =f.radio_button :c,nil
+        =f.label :c_nil
+      %br{style:'clear:both;'}
+    %dd.rdo
+      =f.label :a
+      %br
+      - (0..4).each do |i|
+        %span{style:"border-color:##{colors[i]};"}
+          =f.radio_button :a,i-2
+          =f.label "a_#{i-2}"
+      %span.l
+        =f.radio_button :a,nil
+        =f.label :a_nil
+      %br{style:'clear:both;'}
+    %dt= f.label :message
+    %dd
+      =f.text_area :message,:size => "80x8"
+    %dt= f.label :reply
+    %dd
+      = f.radio_button :reply,false,checked: true
+      = f.label :reply_false
+      = f.radio_button :reply,true
+      = f.label :reply_true
+    %dd
+
+      %li ご入力いただいた情報は暗号化されて送信されます。
+      %li お問合せ、ご意見すべてに、必ずしも返信をお約束するものではありません。ご了承くださいませ。
+      %li メールアドレスの入力には特にご注意ください。間違ったアドレスが入力された場合、ご返信させていただけないことがございます。
+      %li
+        お客様の環境（セキュリティソフトなど）により、まれに正しく送信されない場合がございます。
+        その際は、お手数ですがセキュリティソフトをいったん無効にしていただくか、
+        %a{href:"mailto:info@yamaokaya.com"} info@yamaokaya.com
+        まで直接ご意見をお寄せ下さいますよう、お願い申し上げます。
+  .actions{align: :center}
+    = f.submit '送信'
   #aja{title:'お近くの店舗を表示しています'}

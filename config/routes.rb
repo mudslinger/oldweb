@@ -1,8 +1,18 @@
-
+# feedbacks_path   GET   /feedbacks(.:format)  feedbacks#index
+# POST   /feedbacks(.:format)  feedbacks#create
+# new_feedback_path  GET   /feedbacks/new(.:format)  feedbacks#new
+# edit_feedback_path   GET   /feedbacks/:id/edit(.:format)   feedbacks#edit
+# feedback_path  GET   /feedbacks/:id(.:format)  feedbacks#show
+# PATCH  /feedbacks/:id(.:format)  feedbacks#update
+# PUT  /feedbacks/:id(.:format)  feedbacks#update
+# DELETE   /feedbacks/:id(.:format)  feedbacks#destroy
 Oldweb::Application.routes.draw do
-  resources :feedbacks
+  #resources :feedbacks
+  get 'feedbacks(.:format)' => 'feedbacks#index'
+  post 'feedbacks(.:format)' => 'feedbacks#send_message'
+
   get 'feedbacks_search' => 'feedbacks#search'
-  resources :ir_messages
+  #resources :ir_messages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

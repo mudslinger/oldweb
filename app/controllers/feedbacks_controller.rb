@@ -4,66 +4,25 @@ class FeedbacksController < ApplicationController
   def search
     lat = params[:lat]
     lng = params[:lng]
-    @shops = Shop.nearlest_5(lat,lng)
+    @shops = Shop.nearlest_4(lat,lng)
   end
 
-  # GET /feedbacks
-  # GET /feedbacks.json
   def index
-    @feedbacks = Feedback.all
-  end
-
-  # GET /feedbacks/1
-  # GET /feedbacks/1.json
-  def show
-  end
-
-  # GET /feedbacks/new
-  def new
     @feedback = Feedback.new
   end
 
-  # GET /feedbacks/1/edit
-  def edit
-  end
-
-  # POST /feedbacks
-  # POST /feedbacks.json
-  def create
+  def send_message
     @feedback = Feedback.new(feedback_params)
 
-    respond_to do |format|
-      if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @feedback }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @feedback.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /feedbacks/1
-  # PATCH/PUT /feedbacks/1.json
-  def update
-    respond_to do |format|
-      if @feedback.update(feedback_params)
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @feedback.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /feedbacks/1
-  # DELETE /feedbacks/1.json
-  def destroy
-    @feedback.destroy
-    respond_to do |format|
-      format.html { redirect_to feedbacks_url }
-      format.json { head :no_content }
+    if @feedback.save
+      #TODO:メール送信はsidekiqに移行させるがとりあえず同期処理
+      #まだ送られていない案件をすべて送信する
+      # IrMessage.not_sent.each do |i|
+      #   i.report unless i.reported?
+      # end
+      redirect_to url_for(action: :index),notice: "メッセージありがとうございます。"
+    else
+      render action: :index
     end
   end
 
@@ -75,6 +34,26 @@ class FeedbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params[:feedback]
+      params[:feedback][:ip_addr] = request.remote_ip()
+      params[:feedback].permit(
+        :name,
+        :age,
+        :male,
+        :mail_addr,
+        :mail_addr_confirmation,
+        :address,
+        :phone,
+        :shop_id,
+        :visit_date,
+        :visit_time,
+        :repetition,
+        :menu_id,
+        :q,:s,:c,:a,
+        :message,
+        :reply,
+        :lat,
+        :lng,
+        :ip_addr
+      )
     end
 end

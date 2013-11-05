@@ -8,7 +8,7 @@ class CreateIrMessages < ActiveRecord::Migration
       t.string :address,:limit => 127 , :null => true
       t.string :phone,:limit => 32 , :null => true
       t.string :mail_addr,:limit => 63 , :null => true
-      t.string :message, :null => true
+      t.text :message, :null => true
       t.boolean :mail_sent, null: false,default: false
       t.timestamps
     end

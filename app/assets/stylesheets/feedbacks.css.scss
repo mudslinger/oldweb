@@ -1,3 +1,104 @@
-// Place all the styles related to the Feedbacks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'mixins';
+body.feedbacks{
+  #aja{
+    width:260px;
+  }
+  div.smart_select{
+    width:120px;
+    height:120px;
+    margin:2px;
+    border: 1px #FF0000 solid;
+    position:relative;
+    float:left;
+    cursor: pointer;
+    .txt{
+      font-size:10px;
+      position:absolute;
+      left:0px;
+      top:0px;
+      margin-top: 3px;
+      margin-left:3px;
+      margin-right: 3px;
+      width:112px;
+      padding:2px;
+      background-color:#FF0000;
+      @include border-radius(6px, 6px);
+      @include opacity(30);
+      color:#FFFFFF;
+    }
+  }
+
+  .remarks{
+    clear:both;
+    font-size:10px;
+    color:#666666;
+  }
+  .remarks:before{
+    content: '※';
+  }
+  dl{
+     margin-left:20px;
+  }
+  dt{
+      background-color:#EAEAEA;
+      @include bg("hnt.jpg");
+      border-bottom:solid 2px #0066FF;
+      color:#333333;
+      font-size:12px;
+      padding:3px;
+      font-weight:bold;
+  }
+  dd{
+      color:#333333;
+      margin:0px 0px 0px 20px;
+      line-height:16px;
+      border-bottom: dotted 1px #AAAAAA;
+      vertical-align:baseline;
+      padding:5px 3px 8px 2px;
+  }
+  label.static{
+      width:120px;
+      display:inline;
+      margin-left:5px;
+      margin-top:3px;
+  }
+  h1{
+      position:relative;
+      font-size:18px;
+      margin:10px 0px 10px 0px;
+      border-left:solid 24px #0066FF;
+      background-color:#EAEAEA;
+      @include bg("hnt.jpg");
+      font-weight:bold;
+      color: #333333;
+      padding:5px;
+  }
+  li{
+      margin-bottom:8px;
+      list-style:square;
+      line-height:17px;
+  }
+  optgroup{
+      background-color:#F0F0F0;
+  }
+  optgroup option{
+      background-color:#FFFFFF;
+  }
+  dd.rdo span{
+      width:90px;
+      display:block;
+      float:left;
+      border-bottom: solid 6px;
+  }
+  dd.rdo span.l{
+      width:150px;
+      border-left:solid 1px #BBBBBB;
+      margin-left:10px;
+      border-bottom:none;
+      float:left;
+  }
+  dd.rdo{
+      float:none;
+      clear:both;
+  }
+}

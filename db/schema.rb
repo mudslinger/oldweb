@@ -76,26 +76,28 @@ ActiveRecord::Schema.define(version: 20131101101102) do
   end
 
   create_table "feedbacks", force: true do |t|
-    t.string   "mail_addr",  limit: 63,  null: false
-    t.string   "name",       limit: 32,  null: false
+    t.string   "mail_addr",  limit: 63,                  null: false
+    t.string   "name",       limit: 32,                  null: false
     t.integer  "age"
     t.boolean  "male"
     t.string   "address",    limit: 127
     t.string   "phone",      limit: 63
-    t.string   "ip_addr",    limit: 15,  null: false
+    t.string   "ip_addr",    limit: 15,                  null: false
     t.float    "lat"
     t.float    "lng"
     t.string   "region"
     t.integer  "shop_id"
-    t.date     "visit_time"
+    t.date     "visit_date"
+    t.integer  "visit_time"
     t.integer  "repetition"
     t.integer  "menu_id"
     t.integer  "q"
     t.integer  "s"
     t.integer  "c"
     t.integer  "a"
-    t.boolean  "reply",                  null: false
-    t.text     "message",                null: false
+    t.boolean  "reply",                                  null: false
+    t.text     "message",                                null: false
+    t.boolean  "mail_sent",              default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

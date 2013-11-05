@@ -33,7 +33,9 @@
           "data-show-border"=> false,
           "data-header" => false}
       .wakuinner
-        バナー群
+        =link_to image_tag64("index_banner01.jpg",alt: "ご意見・ご感想をお聞かせください" ,style: "margin:3px;"),{action: :index,controller: :feedbacks}
+        =link_to image_tag64("index_banner02.jpg",alt: "お得なクーポン・情報が届く携帯会員登録はこちら！" ,style:"margin:3px;") ,"http://coupon.yamaokaya.com/bm/p/f/tf.php?id=join",{:popup => true}
+        =link_to image_tag("index_banner04.jpg",alt:"山岡家でマイルをゲット！" ,style:"margin:3px;") ,"http://ana.jp-anex.co.jp/gourmet/",{:popup => true}
     .wakubottom
 #widearea
   .box
