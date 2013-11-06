@@ -58,24 +58,26 @@
           %col{width:30}
           %col{width:80}
           %col{width:'*'}
-          - @news_s.each_with_index do |i,idx|
-            %tr.irb
-              - if idx == 0
-                %th.topics{rowspan: @news_s.length,abbr: 'トピックス'}
-                  =image_tag64 'topics.gif', alt: 'トピックス'
-              %td
-                =fd(i.release_date)
-              %td
-                =link_to i.title,h(i.url)
-          - @news_i.each_with_index do |i,idx|
-            %tr.irb
-              - if idx == 0
-                %th.ir{rowspan: @news_i.length,abbr: 'IR'}
-                  =image_tag64 'ir.gif', alt: 'IR'
-              %td
-                =fd(i.release_date)
-              %td
-                =link_to i.title,h(i.url)
+          - cache @news_s do
+            - @news_s.each_with_index do |i,idx|
+              %tr.irb
+                - if idx == 0
+                  %th.topics{rowspan: @news_s.length,abbr: 'トピックス'}
+                    =image_tag64 'topics.gif', alt: 'トピックス'
+                %td
+                  =fd(i.release_date)
+                %td
+                  =link_to i.title,h(i.url)
+          - cache @news_i do
+            - @news_i.each_with_index do |i,idx|
+              %tr.irb
+                - if idx == 0
+                  %th.ir{rowspan: @news_i.length,abbr: 'IR'}
+                    =image_tag64 'ir.gif', alt: 'IR'
+                %td
+                  =fd(i.release_date)
+                %td
+                  =link_to i.title,h(i.url)
     .wakubottom
 #bottomarea
   .btb

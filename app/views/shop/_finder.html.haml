@@ -12,7 +12,7 @@
         %option(label="--- 地域・都道府県を選択してください ---" value="all")
           \--- 地域・都道府県を選択してください ---
         - Area.sorted.each do |a|
-          %option{style:"border-bottom:solid 1px #EFEFEF;color:##{a.color};background-color:##{a.bg_color}",label: a.name,value: a.code}
+          %option{style:"color:##{a.color};background-color:##{a.bg_color}",label: a.name,value: a.code}
             =a.name
     .wakuinner
       .capt
@@ -24,7 +24,7 @@
           %dt.shops{id: "t#{d.id}"}
             =link_to d.name,{action: :shop,id: d.id},{id: "a#{d.id}",name: "a#{d.id}"}
             &nbsp;
-            %span{style: "color:#00AA11;"}
+            %span
               (TEL:#{d.phone})
         %dt#t999999{style:"display:none;"}
           &nbsp;

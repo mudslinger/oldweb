@@ -64,6 +64,9 @@ body.shop{
         }
         dt.shops{
             display:none;
+            span{
+                color:#00AA11;
+            }
         }
     }
     div#widearea{
@@ -207,5 +210,8 @@ body.shop{
         font-size:12px;
         margin:0px;
         padding:0px;
+        option{
+            border-bottom:solid 1px #EFEFEF;
+        }
     }
 }

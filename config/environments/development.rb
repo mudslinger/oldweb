@@ -27,5 +27,8 @@ Oldweb::Application.configure do
   # number of complex assets.
   config.assets.debug = false
   config.assets.compile = true
-  config.cache_store = :memory_store
+  config.cache_store =
+    :redis_store,
+    "redis://yamapp-redis.gneihq.0001.apne1.cache.amazonaws.com/development/cache",
+    { expires_in: 15.minutes }
 end
