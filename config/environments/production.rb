@@ -52,7 +52,7 @@ Oldweb::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  config.cache_store = :memory_cache
+  config.cache_store = :memory_store
   # config.cache_store =
   #   :redis_store,
   #   "redis://yamapp-redis.gneihq.0001.apne1.cache.amazonaws.com/production/cache",
