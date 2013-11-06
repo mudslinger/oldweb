@@ -12,6 +12,6 @@
           =#%span.shops_count (全#{a.shops.count}店舗)
       - a.shops.each do |s|
         %tr
-          %td= link_to s.name,action: :shop,id: s.id
+          %td= link_to s.name,html(action: :shop,id: s.id)
           %td= s.phone
           %td 〒#{s.zip} #{s.address}

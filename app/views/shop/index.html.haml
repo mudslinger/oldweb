@@ -5,10 +5,10 @@
         .wakutop
           .ttt
             %h2.wakutitle
-              =link_to("#{fd(ns.inauguration)} オープン!",{:action=>"shop",:id=>ns.id},{:title=>ns.name})
+              =link_to("#{fd(ns.inauguration)} オープン!",html(:action=>"shop",:id=>ns.id),{:title=>ns.name})
         .wakumiddle
           .wakuinner{style: "color:#334433;font-size:24px;font-weight:bold;"}
-            =link_to(ns.name,{:action=>"shop",:id=>ns.id},{:title=>ns.name})
+            =link_to(ns.name,html(:action=>"shop",:id=>ns.id),{:title=>ns.name})
           .wakuinner{style: "height:110px;"}
             = static_map_link_to(ns)
             %div

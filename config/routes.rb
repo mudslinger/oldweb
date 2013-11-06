@@ -67,7 +67,7 @@ Oldweb::Application.routes.draw do
   #   end
   TopController
   root 'top#index'
-  get 'index.html' => 'top#index'
+  get 'index(.:format)' => 'top#index'
 
   CompanyController.route_keys do |path,key|
     get path => key

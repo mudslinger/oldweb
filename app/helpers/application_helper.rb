@@ -8,6 +8,11 @@ module ApplicationHelper
     obj.action_name
   end
 
+  def html(routes)
+    routes[:format] = :html
+    routes
+  end
+
   #タイトルの表示
   def title(obj)
     key = "#{obj.controller_name}##{obj.action_name}"
@@ -22,13 +27,13 @@ module ApplicationHelper
   #サイドリンクの表示
   # TODO:コントローラ別にフィルター
   def side_links(obj)
-    puts sitemap
+    #puts sitemap
     ret = ''
     sitemap.each_value do |act|
 
       ret << link_to(
         raw("<div>#{act[:title]}</div>"),
-        {action: act[:action]},
+        {action: act[:action],format: :html},
         {:class=>"sidemenu"}
       ) if act[:controller] == obj.controller_name
     end

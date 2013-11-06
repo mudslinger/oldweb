@@ -2,9 +2,9 @@
   #widearea
     = yield
   #narrowarea
-    =link_to(raw("<div>ごあいさつ</div>"),{:action=>"greetings"},{:class=>"sidemenu"})
-    =link_to(raw("<div>会社概要</div>"),{:action=>"index"},{:class=>"sidemenu"})
-    =link_to(raw("<div>ヒストリー</div>"),{:action=>"history"},{:class=>"sidemenu"})
-    =link_to(raw("<div>SNS ガイドライン</div>"),{:action=>"sns_guideline"},{:class=>"sidemenu"})
-    =link_to(raw("<div>創業25年感謝祭</div>"),{:action=>"aniv_25"},{:class=>"sidemenu"})
+    =link_to(raw("<div>ごあいさつ</div>"),html(:action=>"greetings"),{:class=>"sidemenu"})
+    =link_to(raw("<div>会社概要</div>"),html(:action=>"index"),{:class=>"sidemenu"})
+    =link_to(raw("<div>ヒストリー</div>"),html(:action=>"history"),{:class=>"sidemenu"})
+    =link_to(raw("<div>SNS ガイドライン</div>"),html(:action=>"sns_guideline"),{:class=>"sidemenu"})
+    =link_to(raw("<div>創業25年感謝祭</div>"),html(:action=>"aniv_25"),{:class=>"sidemenu"})
 =render :template => "layouts/application"

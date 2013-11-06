@@ -27,7 +27,7 @@
       .wakuinner
         .fb-like-box(data-href="http://www.facebook.com/yamaokaya" data-width="250" data-height="380" data-show-faces="false" data-stream="true" data-show-border="false" data-header="false")
       .wakuinner
-        =link_to image_tag64("index_banner01.jpg",alt: "ご意見・ご感想をお聞かせください" ,style: "margin:3px;"),{action: :index,controller: :feedbacks}
+        =link_to image_tag64("index_banner01.jpg",alt: "ご意見・ご感想をお聞かせください" ,style: "margin:3px;"),html(action: :index,controller: :feedbacks)
         =link_to image_tag64("index_banner02.jpg",alt: "お得なクーポン・情報が届く携帯会員登録はこちら！" ,style:"margin:3px;") ,"http://coupon.yamaokaya.com/bm/p/f/tf.php?id=join",{:target => "_blank"}
         =link_to image_tag("index_banner04.jpg",alt:"山岡家でマイルをゲット！" ,style:"margin:3px;") ,"http://ana.jp-anex.co.jp/gourmet/",{:target => "_blank"}
     .wakubottom
@@ -86,10 +86,10 @@
     %div{style:"float:left;padding:5px;"}
       新店舗拡大中。新しいスタッフ（パート・アルバイト・店長候補）を募集しております。
     %div{style:"float:left;padding:5px;"}
-      = link_to "詳しくはこちら",{controller: :recruit,action: :index},{title: "スタッフ募集"}
+      = link_to "詳しくはこちら",html(controller: :recruit,action: :index),{title: "スタッフ募集"}
   .btb
     .title
       店舗物件募集
     = image_tag64 "index_ph02.jpg",style: "float:left;padding:5px;",alt:"店舗物件募集"
     %div{style:"float:left;padding:5px;"}
-      = link_to "店舗物件を広く募集しております。",{controller: :property,action: :index},{title: "店舗物件募集"}
+      = link_to "店舗物件を広く募集しております。",html(controller: :property,action: :index),{title: "店舗物件募集"}

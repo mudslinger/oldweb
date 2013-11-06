@@ -1,6 +1,6 @@
 #menu
-  =link_to raw("<span>TOP</span>"),{controller: :top,action: :index}
-  =link_to raw("<span>メニュー</span>"),{:controller=>"menu"}
-  =link_to raw("<span>店舗</span>"),{controller: :shop,action: :index}
-  =link_to raw("<span>会社概要</span>"),{controller: :company,action: :index}
-  =link_to raw("<span>IR情報</span>"),{controller: :ir, action: :index}
+  =link_to raw("<span>TOP</span>"),html(controller: :top,action: :index)
+  =link_to raw("<span>メニュー</span>"),html(controller: :menu,action: :index)
+  =link_to raw("<span>店舗</span>"),html(controller: :shop,action: :index)
+  =link_to raw("<span>会社概要</span>"),html(controller: :company,action: :index)
+  =link_to raw("<span>IR情報</span>"),html(controller: :ir, action: :index)

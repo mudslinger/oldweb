@@ -2,14 +2,14 @@
   #widearea
     = yield
   #narrowarea
-    =link_to(raw("<div>株主・投資家の皆様へ</div>"),{:action=>"index"},{:class=>"sidemenu"})
-    =link_to(raw("<div>財務ハイライト</div>"),{:action=>"highlight"},{:class=>"sidemenu"})
-    =link_to(raw("<div>財務情報</div>"),{:action=>"infomation"},{:class=>"sidemenu"})
-    =link_to(raw("<div>事業の概要</div>"),{:action=>"business"},{:class=>"sidemenu"})
-    =link_to(raw("<div>電子公告</div>"),{:action=>"announce"},{:class=>"sidemenu"})
-    =link_to(raw("<div>IRカレンダー/ライブラリ</div>"),{:action=>"library"},{:class=>"sidemenu"})
-    =link_to(raw("<div>株式情報</div>"),{:action=>"stock"},{:class=>"sidemenu"})
-    =link_to(raw("<div>株価情報</div>"),{:action=>"market"},{:class=>"sidemenu"})
-    =link_to(raw("<div>IRお問い合わせ</div>"),{:action=>"contact"},{:class=>"sidemenu"})
-    =link_to(raw("<div>免責事項</div>"),{:action=>"disclaimer"},{:class=>"sidemenu"})
+    =link_to(raw("<div>株主・投資家の皆様へ</div>"),html(:action=>"index"),{:class=>"sidemenu"})
+    =link_to(raw("<div>財務ハイライト</div>"),html(:action=>"highlight"),{:class=>"sidemenu"})
+    =link_to(raw("<div>財務情報</div>"),html(:action=>"infomation"),{:class=>"sidemenu"})
+    =link_to(raw("<div>事業の概要</div>"),html(:action=>"business"),{:class=>"sidemenu"})
+    =link_to(raw("<div>電子公告</div>"),html(:action=>"announce"),{:class=>"sidemenu"})
+    =link_to(raw("<div>IRカレンダー/ライブラリ</div>"),html(:action=>"library"),{:class=>"sidemenu"})
+    =link_to(raw("<div>株式情報</div>"),html(:action=>"stock"),{:class=>"sidemenu"})
+    =link_to(raw("<div>株価情報</div>"),html(:action=>"market"),{:class=>"sidemenu"})
+    =link_to(raw("<div>IRお問い合わせ</div>"),html(:action=>"contact"),{:class=>"sidemenu"})
+    =link_to(raw("<div>免責事項</div>"),html(:action=>"disclaimer"),{:class=>"sidemenu"})
 =render :template => "layouts/application"

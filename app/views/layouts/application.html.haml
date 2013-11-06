@@ -33,11 +33,11 @@
                   .sc2
                     .sc1
                       #title
-                        =link_to image_tag64("logo01.gif",:id=>"logo",:alt=>"山岡家"),:controller=>"top",:action=>"index"
+                        =link_to image_tag64("logo01.gif",:id=>"logo",:alt=>"山岡家"),html(controller: :top,action: :index)
                         #toplink
                           - if ctrl(self) == 'top'
-                            = #link_to "山岡家HPについて",:action=>"about" ,:controller =>"site"
-                            = #link_to "サイトマップ",:action=>"sitemap" ,:controller =>"site"
+                            = link_to "山岡家HPについて",html(:action=>"about" ,:controller =>"site")
+                            = link_to "サイトマップ",html(:action=>"sitemap" ,:controller =>"site")
                         #flash
                           =render(:partial => "/#{ctrl(self)}/title")
                         =render(:partial => "/layouts/menu")

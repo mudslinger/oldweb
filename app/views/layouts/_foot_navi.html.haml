@@ -1,16 +1,16 @@
 #footnavi
-  =link_to "TOP",controller: :top,action: :index
+  =link_to "TOP",html(controller: :top,action: :index)
   &nbsp;|&nbsp;
-  =link_to "メニュー",controller: :menu,action: :index
+  =link_to "メニュー",html(controller: :menu,action: :index)
   &nbsp;|&nbsp;
-  =link_to "店舗",controller: :shop,action: :index
+  =link_to "店舗",html(controller: :shop,action: :index)
   &nbsp;|&nbsp;
-  =link_to "会社概要",controller: :company,action: :index
+  =link_to "会社概要",html(controller: :company,action: :index)
   &nbsp;|&nbsp;
-  =link_to "IR情報",controller: :ir,action: :index
+  =link_to "IR情報",html(controller: :ir,action: :index)
   &nbsp;|&nbsp;
-  =#link_to "ご意見・ご感想",controller: :shop,action: :index
+  =link_to "ご意見・ご感想",html(controller: :feedbacks,action: :index)
   &nbsp;|&nbsp;
-  =link_to "採用情報",controller: :recruit,action: :index
+  =link_to "採用情報",html(controller: :recruit,action: :index)
   &nbsp;|&nbsp;
-  =link_to "店舗物件募集",controller: :property,action: :index
+  =link_to "店舗物件募集",html(controller: :property,action: :index)

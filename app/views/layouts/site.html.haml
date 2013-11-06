@@ -2,7 +2,7 @@
   #widearea
     = yield
   #narrowarea
-    = link_to raw("<div>山岡家HPについて</div>"),{:action => "about"},{:class => "sidemenu"}
-    = link_to raw("<div>サイトマップ</div>"),{:action => "sitemap"},{:class => "sidemenu"}
+    = link_to raw("<div>山岡家HPについて</div>"),html(:action => "about"),{:class => "sidemenu"}
+    = link_to raw("<div>サイトマップ</div>"),html(:action => "sitemap"),{:class => "sidemenu"}
 
 =render :template => "layouts/application"

@@ -22,7 +22,7 @@
       %dl(style="height:180px;overflow-y:scroll;overflow-x:hidden;border:inset 1px #cccccc;")
         - Shop.simple.active.each do |d|
           %dt.shops{id: "t#{d.id}"}
-            =link_to d.name,{action: :shop,id: d.id},{id: "a#{d.id}",name: "a#{d.id}"}
+            =link_to d.name,html(action: :shop,id: d.id),{id: "a#{d.id}",name: "a#{d.id}"}
             &nbsp;
             %span
               (TEL:#{d.phone})
