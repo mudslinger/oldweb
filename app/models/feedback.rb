@@ -6,7 +6,8 @@ class Feedback < ActiveRecord::Base
     format: {
       with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/}
   }
-  validates :mail_addr_confirmation,presence:true,confirmation:true
+  validates :mail_addr_confirmation,presence:true
+
   attr :mail_addr_confirmation
 
 end

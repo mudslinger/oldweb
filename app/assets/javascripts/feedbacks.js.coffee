@@ -5,9 +5,7 @@ $(->
       navigator.geolocation.getCurrentPosition (pos)=>
         $('#lat').val pos.coords.latitude
         $('#lng').val pos.coords.longitude
-        p = $(@).attr('data-href') + '&' + $.param {lat: pos.coords.latitude,lng:pos.coords.longitude}
-        console.log p
-        ll = {lat: pos.coords.latitude,lng:pos.coords.longitude}
+        ll = {lat: pos.coords.latitude,lng:pos.coords.longitude,return_id: $(@).attr('data-return-id')}
         $.get $(@).attr('data-href'),ll, (data)->
           console.log data
           eval(data)

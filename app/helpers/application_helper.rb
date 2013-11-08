@@ -54,7 +54,7 @@ module ApplicationHelper
         style: "width:200px;height:100px;border:inset 1px #CC0000;",
         title: shop.name
       ),
-      {action: 'shop',id: shop.id}
+      {action: 'shop',id: shop.id,format: :html}
     )
   end
   def fd (d)

@@ -78,19 +78,23 @@ Oldweb::Application.routes.draw do
 
   get '/shops(.:format)' => 'shop#shops'
 
-
+  #Menu
   MenuController.route_keys do |path,key|
     get path => key
   end
+
+  #Property
   PropertyController.route_keys do |path,key|
     get path => key
   end
+
+  #Recruit
   RecruitController.route_keys do |path,key|
     get path => key
   end
+  post 'recruit/entry' => 'recruit#entry_post'
 
   #IR
-
   IrController.route_keys do |path,key|
     get path => key
   end

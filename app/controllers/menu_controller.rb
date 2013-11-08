@@ -1,7 +1,7 @@
 class MenuController < ApplicationController
   #layout 'menu/layouts/menu'
 
-  anot :menu , parent: 'menu#index',title:'メニュー',pattern: 'menu/:page(/:id(.:format))',valiation: ->{
+  anot :menu , parent: 'menu#index',title:'メニュー',pattern: 'menu/:page(/:id)(.:format)',valiation: ->{
     Menu.state(:active).map do |s|
       {
         controller: :menu,

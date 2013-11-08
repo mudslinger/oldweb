@@ -1,9 +1,12 @@
 class FeedbacksController < ApplicationController
-  before_action :set_feedback, only: [:show, :edit, :update, :destroy]
+  #before_action :set_feedback, only: [:show, :edit, :update, :destroy]
   layout 'blank', :only => :search
   def search
     lat = params[:lat]
     lng = params[:lng]
+    @return_id = params[:return_id]
+    puts '--------------------------------'
+    puts params
     @shops = Shop.nearest(lat,lng,4)
   end
 

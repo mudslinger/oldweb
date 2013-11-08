@@ -39,7 +39,7 @@
     %dd
       =f.label :shop_id
       =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.active.sorted,:shops, :name, :id, :name),include_blank: '----'
-      %button#search_shop{'data-href' => url_for(action: :search),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
+      %button#search_shop{'data-return-id' => 'feedback_shop_id','data-href' => url_for(action: :search),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
     %dd
       =f.label :visit_date
       =f.date_select :visit_date,{date_separator: '/',start_year:1.years.ago.year,end_year:1.years.since.year,use_month_numbers:true,default:Time.now}

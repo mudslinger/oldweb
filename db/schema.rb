@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101101102) do
+ActiveRecord::Schema.define(version: 20131106071158) do
 
   create_table "area_details", force: true do |t|
     t.integer "area_id", limit: 3, null: false
@@ -132,6 +132,27 @@ ActiveRecord::Schema.define(version: 20131101101102) do
     t.string   "mail_addr",      limit: 63
     t.string   "message"
     t.boolean  "mail_sent",                  default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "job_applicants", force: true do |t|
+    t.boolean  "male",                                                            null: false
+    t.date     "birthday",                                                        null: false
+    t.string   "name",       limit: 63,                                           null: false
+    t.string   "zip",        limit: 31
+    t.string   "address",                                                         null: false
+    t.string   "phone",      limit: 63
+    t.string   "mail_addr",  limit: 127,                                          null: false
+    t.string   "work_style", limit: 63,                                           null: false
+    t.integer  "shop_id",                                                         null: false
+    t.string   "method",     limit: 63,                                           null: false
+    t.string   "ip_addr",    limit: 15
+    t.float    "lat"
+    t.float    "lng"
+    t.decimal  "work_times",             precision: 10, scale: 0, default: 0,     null: false
+    t.text     "message"
+    t.boolean  "sent",                                            default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

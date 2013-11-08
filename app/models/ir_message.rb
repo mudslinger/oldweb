@@ -1,5 +1,5 @@
 class IrMessage < ActiveRecord::Base
-  include ReportMailSendable
+  include IrReportMailSendable
   self.table_name = 'ir_messages2'
   validates :name,
     presence: true

@@ -1,4 +1,4 @@
-module ReportMailSendable
+module IrReportMailSendable
   extend ActiveSupport::Concern
 
   def reported?

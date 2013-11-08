@@ -1,0 +1,93 @@
+%div
+  %h2 エントリーフォーム
+  %p
+    %span{style:'color:red;'} *
+    印がついている項目は必ずご入力下さい。
+  = form_for(@job_applicant,url:{action: :entry_post}) do |f|
+    - if @job_applicant.errors.any?
+      #error_explanation{title:"#{@job_applicant.errors.count}件のエラーがあります。"}
+        - @job_applicant.errors.full_messages.each do |msg|
+          %li= msg
+    %dl
+      %dt 条件など
+      %dd
+        =f.label :shop_id,class: :required
+        =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.active.sorted,:shops, :name, :id, :name,selected_key = @job_applicant.shop_id),include_blank: '----'
+        %button#search_shop{'data-return-id' => 'job_applicant_shop_id','data-href' => url_for(action: :search,controller: :feedbacks),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
+        =f.label :work_style,class: :required
+        =f.select :work_style,work_styles
+      %dt 個人情報
+      %dd
+        =f.label :name,class: :required
+        =f.text_field :name,size: 15
+        =f.label :birthday,class: :required
+        =f.date_select :birthday,{date_separator: '年',start_year:75.years.ago.year,end_year:15.years.ago.year,default:20.years.ago,discard_day: true}
+        =f.label :male,class: :required
+        =f.select :male,{'男性' => true, '女性' => false}
+      %dt ご連絡先
+      %dd
+        =f.label :zip,class: :required
+        =f.text_field :zip,size:8
+        =f.label :address,class: :required
+        =f.text_field :address,size:90
+        =f.hidden_field :lat ,id: :lat
+        =f.hidden_field :lng ,id: :lng
+      %dd
+        =f.label :phone,class: :required
+        =f.telephone_field :phone,size:15,placeholder:'090-1234-5678'
+        ※日中ご連絡可能、または留守番電話メッセージ録音可能な電話番号をご記入ください。
+      %dd
+        =f.label :mail_addr,class: :required
+        =f.email_field :mail_addr,size:63,placeholder:'ramen@yamaokaya.com'
+        %br
+        =f.label :mail_addr_confirmation,class: :required
+        =f.email_field :mail_addr_confirmation,size:63,placeholder:'上記とアドレスを入力してください'
+      %dt= f.label :method
+      %dd
+        =f.select :method,['Eメール','お電話']
+      %dt= f.label :work_times
+      %dd
+        .pull-left
+          %table.work_times
+            %thead
+              %tr
+                %th
+                - (I18n.t 'date.abbr_day_names').each do |t|
+                  %th= t
+                %th 祝
+            %tfoot
+            %tbody
+              %tr
+                %th 午前中
+                - (0..7).each do |i|
+                  %td
+                    =f.check_box "work_times_#{i}".to_sym,{},1,0
+              %tr
+                %th 午後
+                - (8..8+7).each do |i|
+                  %td
+                    =f.check_box "work_times_#{i}".to_sym,{},1,0
+              %tr
+                %th 夜間
+                - (16..16+7).each do |i|
+                  %td
+                    =f.check_box "work_times_#{i}".to_sym,{},1,0
+              %tr
+                %th 深夜
+                - (24..31).each do |i|
+                  %td
+                    =f.check_box "work_times_#{i}".to_sym,{},1,0
+        .pull-left
+          %li
+            ご希望(勤務可能)の勤務時間帯にチェックを入れてください。
+          %li
+            この表に記入しきれない内容は下の入力欄にご記入ください。
+          %li
+            特にご希望がない場合は、ご記入いただく必要はありません。
+        %div{style:'clear:both;'}
+      %dt= f.label :message
+      %dd
+        =f.text_area :message,:size => "80x8"
+    .actions{align: :center}
+      = f.submit '送信'
+#aja{title:'お近くの店舗を表示しています'}

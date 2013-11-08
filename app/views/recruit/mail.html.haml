@@ -1,0 +1,150 @@
+%body
+  :scss
+    ul{
+      li{
+        color:#444;
+        font-size:12px;
+        &:before{
+          color:red;
+          font-size:13px;
+          content:'▼';
+        }
+      }
+
+    }
+    .layout{
+      width:100%;
+      border:solid 1px #CCC;
+      empty-cells:show;
+      border-collapse:collapse;
+      table-layout:fixed;
+      font-size:13px;
+      th,td{
+        border: solid 1px #CCC;
+      }
+      th{
+        background-color:#FCC;
+      }
+    }
+    .yamaokaya{
+      color:red;
+    }
+    .employee{
+      color:blue;
+    }
+    .work_times{
+      width:300px;
+      text-align:center;
+      border:solid 1px #CCC;
+      empty-cells:show;
+      border-collapse:collapse;
+      table-layout:fixed;
+      th,td{
+        border: solid 1px #CCC;
+      }
+      td{
+        &.ok{
+          background-color:green;
+        }
+        &.ng{
+          background-color:white;
+        }
+      }
+    }
+  %p
+    お疲れ様です。
+
+  %p
+    #{body.name}様より、入社希望のエントリーがありました。
+  - if 'パート・アルバイト' == body.work_style
+    %p
+      店長・SV協議の上、どちらが担当するか決定の上で、
+      #{body.method}で#{body.name}様にコンタクトを取ってください。
+    %ul
+      %li
+        応募者は、お客様でもあります。失礼な対応をするとお客様を失うことになりかねません。
+        丁寧な対応を心がけてください。
+      %li
+        自店で採用予定がない場合でも、近隣に採用したい店舗がある可能性があります。
+        店長独自で判断せず、必ずSVと合議を行ってください。
+      %li
+        面接を行う・行わないにかかわらず、必ず一度は連絡をとるようにしてください。
+      %li
+        当社からの最初の連絡のスピード感が、採用の可否に大きな影響を与えます。可能な限り早く最初の連絡を行ってください。
+      %li
+        一度連絡して連絡がつかなかった場合でも、何度か連絡を試みるようにしてください。
+      %li
+        このメールはシステムより自動送信されています。応募者への連絡をメールで行う場合、
+        このメールに返信しても応募者に届きません。
+        必ず、下表内のメールアドレスを指定して送信するようにお願いします。
+  - else
+    %p
+      社員・契約社員での入社希望ですので、人財開発課でコンタクトをとります。
+      店舗/SVからの連絡を行わないでください。
+  %table.layout
+    %col{width: '50px'}
+    %col{width: '*'}
+    %thead
+    %tfoot
+    %tbody
+      %tr
+        %th 氏名
+        %td= body.name
+      %tr
+        %th 勤務希望店舗
+        %td= body.shop.name
+      %tr
+        %th 勤務形態
+        %td= body.work_style
+      %tr
+        %th 住所
+        %td #{body.zip} #{body.address}
+      %tr
+        %th 電話番号
+        %td #{body.phone}
+      %tr
+        %th メールアドレス
+        %td= body.mail_addr
+      %tr
+        %th 当社からの連絡方法
+        %td= body.method
+      %tr
+        %th 地図
+        %td
+          =raw body.static_map
+          %br
+          .yamaokaya
+            Y:#{body.shop.name}
+          .employee
+            E:#{body.name}さんの住所
+      %tr
+        %th 勤務希望時間帯
+        %td
+          %table.work_times
+            %col{width: '20px'}
+            %colgroup{span:7}
+              %col{width: '*'}
+            %thead
+              %tr
+                %th
+                - (I18n.t 'date.abbr_day_names').each do |t|
+                  %th= t
+                %th 祝
+            %tfoot
+            %tbody
+              %tr
+                %th 午前中
+                - (0..7).each do |i|
+                  %td{class: (body.work_times & (1 << i)).zero? ? 'ng' : 'ok'}
+              %tr
+                %th 午後
+                - (8..8+7).each do |i|
+                  %td{class: (body.work_times & (1 << i)).zero? ? 'ng' : 'ok'}
+              %tr
+                %th 夜間
+                - (16..16+7).each do |i|
+                  %td{class: (body.work_times & (1 << i)).zero? ? 'ng' : 'ok'}
+              %tr
+                %th 深夜
+                - (24..31).each do |i|
+                  %td{class: (body.work_times & (1 << i)).zero? ? 'ng' : 'ok'}

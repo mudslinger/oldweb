@@ -1,5 +1,25 @@
 @import 'mixins';
 body.recruit{
+  table.work_times{
+    empty-cells:show;
+    border-collapse:collapse;
+    th,td{
+      border: solid 1px #CCC;
+      padding:2px;
+    }
+    th{
+      background-color:#FFCCCC;
+      text-align:center;
+    }
+  }
+  .pull-right{
+    float:right;
+    width:45%;
+  }
+  .pull-left{
+    float:left;
+    width:45%;
+  }
   div#narrowarea{
       float:left;
       border:none;

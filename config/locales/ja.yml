@@ -200,7 +200,7 @@ ja:
     attributes:
       feedback:
         mail_addr: 'メールアドレス'
-        mail_addr_confirmation: 'メールアドレス(確認)'
+        mail_addr_confirmation: 'メールアドレス:確認'
         name: 'お名前'
         age: '年齢'
         male: '性別'
@@ -252,3 +252,17 @@ ja:
         address: 'ご住所'
         mail_addr: 'メールアドレス'
         message: 'お問い合わせ内容'
+      job_applicant:
+        name: 'お名前'
+        shop_id: 'ご希望の勤務先'
+        work_style: '勤務形態'
+        zip: '〒'
+        address: 'ご住所'
+        phone: 'お電話番号'
+        mail_addr: 'メールアドレス'
+        mail_addr_confirmation: 'メールアドレス:確認'
+        method: '当社からのご連絡方法'
+        message: その他、ご希望・ご質問等がありましたらご記入ください。
+        work_times: ご希望の勤務時間帯
+        male: '性別'
+        birthday: 生年月日
