@@ -8,14 +8,12 @@
     js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1"
     fjs.parentNode.insertBefore(js, fjs)
 #ue
-  %ul.js-hidden#js-news
+  %ul.ticker#news
     - @news_s.each do |i|
-      %li.news-item
-        =fd(i.release_date)
+      %li<
+        = fd(i.release_date)
         …
         =link_to i.title,i.url
-  :coffeescript
-    #$('#js-news').ticker()
 #narrowarea
   .box
     .wakumiddle

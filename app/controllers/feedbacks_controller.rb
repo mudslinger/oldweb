@@ -18,11 +18,11 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
 
     if @feedback.save
-      #TODO:メール送信はsidekiqに移行させるがとりあえず同期処理
+      #OPTIMIZE:メール送信はsidekiqに移行させるがとりあえず同期処理
       #まだ送られていない案件をすべて送信する
-      # IrMessage.not_sent.each do |i|
-      #   i.report unless i.reported?
-      # end
+      IrMessage.not_sent.each do |i|
+        i.report unless i.reported?
+      end
       redirect_to url_for(action: :index),notice: "メッセージありがとうございます。"
     else
       render action: :index

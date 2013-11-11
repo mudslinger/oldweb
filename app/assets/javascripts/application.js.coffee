@@ -1,7 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require_tree .
-#= require jquery.ticker
+## require jquery.ticker
 #= require jquery.ui.resizable
 #= require jquery.ui.selectable
 #= require jquery.ui.dialog

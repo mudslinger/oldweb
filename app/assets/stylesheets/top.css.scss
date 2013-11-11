@@ -1,5 +1,29 @@
 @import 'mixins';
 body.top{
+
+  .ticker {
+      width: 380px;
+      height: 16px;
+      position: relative;
+      overflow: hidden;
+      left:90px;
+      top:19px;
+      border:none;
+      list-style: none;
+      font-size: 13px;
+      background-color:transparent;
+  }
+
+
+  .ticker li {
+      height: 16px;
+      //padding: 5px;
+      //margin: 0px 5px;
+      font-weight:bold;
+  }
+
+
+
   div#narrowarea{
     float:right;
     border:none;
