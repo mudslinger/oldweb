@@ -67,6 +67,10 @@ Oldweb::Application.routes.draw do
   #   end
 
   #携帯サイトへのリダイレクト
+  constraints host: "www2.yamaokaya.jp" do
+    get '/' => 'forward#index'
+    get 'index(.:format)' => 'forward#index'
+  end
   constraints host: "www.yamaokaya.jp" do
     get '/' => 'forward#index'
     get 'index(.:format)' => 'forward#index'
