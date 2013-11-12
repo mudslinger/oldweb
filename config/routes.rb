@@ -65,6 +65,17 @@ Oldweb::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  #携帯サイトへのリダイレクト
+  constraints host: "www.yamaokaya.jp" do
+    get '/' => 'forward#index'
+    get 'index(.:format)' => 'forward#index'
+  end
+  constraints host: "yamaokaya.jp" do
+    get '/' => 'forward#index'
+    get 'index(.:format)' => 'forward#index'
+  end
+
   TopController
   root 'top#index'
   get 'index(.:format)' => 'top#index'
@@ -119,4 +130,6 @@ Oldweb::Application.routes.draw do
   # get 'company/history' => 'company#history'
   # get 'company/sns_guideline' => 'company#sns_guideline'
   # get 'company/aniv_25' => 'company#aniv_25'
+
+
 end
