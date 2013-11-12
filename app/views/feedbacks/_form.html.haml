@@ -1,5 +1,5 @@
 - colors = ['BBBBFF','BBBBDD','CCCCCC','DDBBBB','FFBBBB'].reverse
-= form_for @feedback,url:{action: :send_message} do |f|
+= form_for @feedback,url:{action: :send_message,format: :html} do |f|
   - if @feedback.errors.any?
     #error_explanation{title:"#{@feedback.errors.count}件のエラーがあります。"}
       - @feedback.errors.full_messages.each do |msg|
@@ -18,23 +18,23 @@
     %dt お客様について
     %dd
       =f.label :name ,class: :required
-      =f.text_field :name,:size => 15
+      =f.text_field :name,:size => 15,placeholder: '山岡 太郎'
       =f.label :age
       =f.select :age,age_opts,include_blank: '----'
       =f.label :male
       =f.select :male,{'男性' => true, '女性' => false},include_blank: '----'
     %dd
       =f.label :mail_addr,class: :required
-      =f.text_field :mail_addr
-      %br
+      =f.text_field :mail_addr,placeholder: 'taro@yamaokaya.com',size:48
+    %dd
       =f.label :mail_addr_confirmation,class: :required
-      =f.text_field :mail_addr_confirmation
+      =f.text_field :mail_addr_confirmation,placeholder: '確認のため、同じアドレスを入力してください。',size:48
     %dd
       =f.label :address
-      =f.text_field :address
+      =f.text_field :address,size:80
     %dd
       =f.label :phone
-      =f.text_field :phone
+      =f.text_field :phone,placeholder: '090-1234-5678'
     %dt ご来店時の状況
     %dd
       =f.label :shop_id
@@ -42,7 +42,7 @@
       %button#search_shop{'data-return-id' => 'feedback_shop_id','data-href' => url_for(action: :search),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
     %dd
       =f.label :visit_date
-      =f.date_select :visit_date,{date_separator: '/',start_year:1.years.ago.year,end_year:1.years.since.year,use_month_numbers:true,default:Time.now}
+      =f.date_select :visit_date,{start_year:1.years.ago.year,end_year:1.years.since.year,use_month_numbers:true,default:Time.now}
       =f.label :visit_time
       =f.select :visit_time,time_opts,include_blank: '----'
       =f.label :repetition

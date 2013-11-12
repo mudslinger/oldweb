@@ -1,7 +1,7 @@
 class Menu < ActiveRecord::Base
   include Spoilable
   belongs_to :genre,foreign_key: :genre_id
-
+  has_many :feedbacks
   scope :state, ->(state){
     case state
     when :active then

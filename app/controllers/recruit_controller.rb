@@ -15,15 +15,13 @@ class RecruitController < ApplicationController
       #TODO:メール送信はsidekiqに移行させるがとりあえず同期処理
       #まだ送られていない案件をすべて送信する
       JobApplicant.not_sent.each do |i|
-        i.report do
-          render_to_string :type => :haml, :locals => {:body => i}, template: 'recruit/mail',layout: 'blank'
+        i.report do |params|
+          render_to_string params
         end unless i.reported?
       end
-      #TODO: まともなメッセージに変更
-      redirect_to url_for(action: :entry),notice: "メッセージありがとうございます。"
-
+      redirect_to url_for(action: :entry),notice: "ご応募まことにありがとうございます。後ほど担当者よりご連絡させていただきます。"
     else
-      render action: :entry
+      render action: :entry,notice: "エラーが発生いたしました。大変申し訳ありませんが、時間を置いて再度お試しください。"
     end
   end
 

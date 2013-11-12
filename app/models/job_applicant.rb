@@ -18,6 +18,11 @@ class JobApplicant < ActiveRecord::Base
 
   scope :not_sent,-> { where(sent: false)}
 
+  #生年月日から年齢
+  def age
+    Date.today.year - birthday.year
+  end
+
   #動的メソッドの追加
   (0..31).each do |i|
     define_method("work_times_#{i}") do

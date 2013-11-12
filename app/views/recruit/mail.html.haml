@@ -2,13 +2,8 @@
   :scss
     ul{
       li{
-        color:#444;
-        font-size:12px;
-        &:before{
-          color:red;
-          font-size:13px;
-          content:'▼';
-        }
+        color:#E33;
+        font-size:13px;
       }
 
     }
@@ -21,9 +16,12 @@
       font-size:13px;
       th,td{
         border: solid 1px #CCC;
+        img{
+          width:100%;
+        }
       }
       th{
-        background-color:#FCC;
+        background-color:#CCA;
       }
     }
     .yamaokaya{
@@ -33,7 +31,7 @@
       color:blue;
     }
     .work_times{
-      width:300px;
+      width:100%;
       text-align:center;
       border:solid 1px #CCC;
       empty-cells:show;
@@ -53,7 +51,6 @@
     }
   %p
     お疲れ様です。
-
   %p
     #{body.name}様より、入社希望のエントリーがありました。
   - if 'パート・アルバイト' == body.work_style
@@ -70,7 +67,7 @@
       %li
         面接を行う・行わないにかかわらず、必ず一度は連絡をとるようにしてください。
       %li
-        当社からの最初の連絡のスピード感が、採用の可否に大きな影響を与えます。可能な限り早く最初の連絡を行ってください。
+        当社からの最初の連絡のスピード感が、採用の可否に大きな影響を与えます。可能な限り早くファーストコンタクトを行ってください。
       %li
         一度連絡して連絡がつかなかった場合でも、何度か連絡を試みるようにしてください。
       %li
@@ -79,8 +76,8 @@
         必ず、下表内のメールアドレスを指定して送信するようにお願いします。
   - else
     %p
-      社員・契約社員での入社希望ですので、人財開発課でコンタクトをとります。
-      店舗/SVからの連絡を行わないでください。
+      社員・契約社員での入社希望ですので、人財開発課にて対応します。
+      店舗/SVからの連絡は必要ありません。
   %table.layout
     %col{width: '50px'}
     %col{width: '*'}
@@ -90,6 +87,9 @@
       %tr
         %th 氏名
         %td= body.name
+      %tr
+        %th 年齢
+        %td #{body.age}歳
       %tr
         %th 勤務希望店舗
         %td= body.shop.name
@@ -148,3 +148,8 @@
                 %th 深夜
                 - (24..31).each do |i|
                   %td{class: (body.work_times & (1 << i)).zero? ? 'ng' : 'ok'}
+          %p
+            ※あくまで目安としてお使いください。
+      %tr
+        %th その他
+        %td= body.message

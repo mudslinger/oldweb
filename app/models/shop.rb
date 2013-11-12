@@ -1,7 +1,7 @@
 class Shop < ActiveRecord::Base
-  include Gmappable,Closeable
+  include Gmappable,Closeable,Manageable
   has_and_belongs_to_many :areas,join_table: :area_details
-
+  has_many :feedbacks
   scope :new_shops, ->{
     where("current_timestamp between (date_add(inauguration,interval -30 day)) and close").
     order('inauguration desc').limit(3)

@@ -2,7 +2,23 @@
 body.feedbacks{
 
   dl{
-     margin-left:20px;
+    margin-left:20px;
+    label,input,select{
+      display: block;
+      float: left;
+      vertical-align:baseline;
+      margin:5px;
+    }
+    label{
+      margin-top: 9px;
+      &:after{
+        content: ':';
+      }
+    }
+
+    br{
+      claer:both;
+    }
   }
   dt{
       background-color:#EAEAEA;
@@ -10,23 +26,28 @@ body.feedbacks{
       border-bottom:solid 2px #0066FF;
       color:#333333;
       font-size:12px;
+      overflow: auto;
       padding:3px;
       font-weight:bold;
+      clear:both;
   }
   dd{
       color:#333333;
-      margin:0px 0px 0px 20px;
-      line-height:16px;
       border-bottom: dotted 1px #AAAAAA;
-      vertical-align:baseline;
       padding:5px 3px 8px 2px;
+      overflow: auto;
+      clear:both;
+      label:first-child{
+        width:130px;
+        text-align:right;
+      }
+      &.rdo label{
+        width:90%;
+        text-align:left;
+      }
   }
-  label.static{
-      width:120px;
-      display:inline;
-      margin-left:5px;
-      margin-top:3px;
-  }
+
+
   h1{
       position:relative;
       font-size:18px;

@@ -46,14 +46,14 @@ class IrController < ApplicationController
     @ir_message = IrMessage.new(ir_message_params)
     if @ir_message.save
 
-        #TODO:メール送信はsidekiqに移行させるがとりあえず同期処理
+        #OPTIMIZE:メール送信はsidekiqに移行させるがとりあえず同期処理
         #まだ送られていない案件をすべて送信する
-        # IrMessage.not_sent.each do |i|
-        #   i.report unless i.reported?
-        # end
-        redirect_to url_for(action: :contact),notice: "メッセージありがとうございます。"
+        IrMessage.not_sent.each do |i|
+          i.report unless i.reported?
+        end
+        redirect_to url_for(action: :contact),notice: "担当宛に頂いたメッセージをお送りしました。ご連絡まことにありがとうございました。"
     else
-        render action: :contact,notice: "エラーです"
+        render action: :contact,notice: "エラーが発生いたしました。大変申し訳ありませんが、時間を置いて再度お試しください。"
     end
   end
 

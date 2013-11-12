@@ -1,0 +1,1 @@
+DIC_ADDRESS = Rails.root.join('lib','dic').to_s

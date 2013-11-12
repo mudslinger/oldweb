@@ -6,15 +6,14 @@ module RecruitReportSendable
   end
 
   def report
-    ses = AWS::SES::Base.new(
-      :access_key_id => 'AKIAI2Q5IAVIWTLA2SKA',
-      :secret_access_key => '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')
-    html = yield
+    ses = AWS::SES::Base.new(access_key_id: SES_ID,secret_access_key: SES_KEY)
+    to = ['saiyo@yamaokaya.com','tanaka@yamaokaya.com','sales-man@yamaokaya.com']
+    to = to + [self.shop.mail_addrs[:sv],self.shop.mail_addrs[:group]] if self.work_style == 'パート・アルバイト'
     ses.send_email(
-      :to        => 'tanaka@yamaokaya.com',
-      :source    => 'info@yamaokaya.com',
-      :subject   => "求人応募メール(No:#{self.id} 店舗:#{self.shop.name})",
-      html_body: html
+      :to        => to,
+      :source    => 'recruit@yamaokaya.com',
+      :subject   => "求人応募メールNo.#{self.id} (店舗:#{self.shop.name})",
+      html_body: yield({type: :haml, locals: {body: self}, template: 'recruit/mail',layout: 'blank'})
     )
     self.sent = true
     self.save(validate: false)

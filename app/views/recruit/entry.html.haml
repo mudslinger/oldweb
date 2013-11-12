@@ -44,7 +44,7 @@
         =f.email_field :mail_addr_confirmation,size:63,placeholder:'上記とアドレスを入力してください'
       %dt= f.label :method
       %dd
-        =f.select :method,['Eメール','お電話']
+        =f.select :method,['お電話またはEメール（どちらでも）','お電話','Eメール']
       %dt= f.label :work_times
       %dd
         .pull-left
