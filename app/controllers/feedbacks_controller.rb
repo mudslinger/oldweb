@@ -2,7 +2,7 @@ class FeedbacksController < ApplicationController
   #before_action :set_feedback, only: [:show, :edit, :update, :destroy]
 
   force_ssl only: [:send_message,:index]
-  before_filter :force_plain,except: [:send_message,:index]
+  before_filter :force_plain,except: [:send_message,:index,:search]
 
   layout 'blank', :only => :search
   def search
