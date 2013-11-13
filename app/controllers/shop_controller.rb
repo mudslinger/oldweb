@@ -1,7 +1,5 @@
 class ShopController < ApplicationController
-  before_filter :force_plain
-  def all_shops
-  end
+  before_filter :force_plain,except: [:shops]
 
   def shops
     @shops = Shop.active
