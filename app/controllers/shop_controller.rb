@@ -1,5 +1,5 @@
 class ShopController < ApplicationController
-
+  before_filter :force_plain
   def all_shops
   end
 

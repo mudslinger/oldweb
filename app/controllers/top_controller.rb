@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-
+  before_filter :force_plain
   anot :index , parent: '',title:'ラーメン山岡家'
   def index
     @news_s = NewsRelease.find(:all,:conditions => "news_type = 0",:limit => "7",:order => "release_date desc")

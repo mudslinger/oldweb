@@ -1,6 +1,6 @@
 class MenuController < ApplicationController
-  #layout 'menu/layouts/menu'
 
+  before_filter :force_plain
   anot :menu , parent: 'menu#index',title:'メニュー',pattern: 'menu/:page(/:id)(.:format)',valiation: ->{
     Menu.state(:active).map do |s|
       {

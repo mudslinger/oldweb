@@ -1,5 +1,5 @@
 class CompanyController < ApplicationController
-
+  before_filter :force_plain
   anot :index , parent: 'top#index',title:'会社概要'
   def index
     @sales = [2934064,3998817,5100858,5959462,6444178,7033515,7223968,7952626,8712310,8909344]

@@ -1,5 +1,8 @@
 class RecruitController < ApplicationController
 
+  force_ssl only: [:entry,:entry_post]
+  before_filter :force_plain,except: [:entry,:entry_post]
+
   anot :index , parent: 'top#index',title:'人財募集'
   def index
   end

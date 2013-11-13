@@ -1,6 +1,5 @@
 class IrController < ApplicationController
-  # include ::SslRequirement
-  # ssl_required :send_message,:contact
+
   force_ssl only: [:send_message,:contact]
   before_filter :force_plain,except: [:send_message,:contact]
 
