@@ -1,11 +1,15 @@
 class ShopController < ApplicationController
 
+  def all_shops
+  end
+
   def shops
     @shops = Shop.active
     @areas = Area.level1.active
     respond_to{ |format|
-      format.kml{render kml:@shops }
+      format.kml{render kml: @shops }
       format.html
+      format.json{render json: @shops.as_json(only:[:lat,:lng,:name,:id,:pref_code,:marker])}
     }
   end
 
