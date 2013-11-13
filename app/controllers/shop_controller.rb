@@ -4,13 +4,16 @@ class ShopController < ApplicationController
   end
 
   def shops
+
     @shops = Shop.active
     @areas = Area.level1.active
-    respond_to{ |format|
-      format.kml{render kml: @shops }
-      format.html
-      format.json{render json: @shops.as_json(only:[:lat,:lng,:name,:id,:pref_code,:marker])}
-    }
+    cache @shops,@areas do
+      respond_to{ |format|
+        format.kml{render kml: @shops }
+        format.html
+        format.json{render json: @shops.as_json(only:[:lat,:lng,:name,:id,:pref_code,:marker])}
+      }
+    end
   end
 
   anot :shop , parent: 'shop#index',title:'店舗情報',pattern: 'shop/:id(.:format)',valiation: ->{
