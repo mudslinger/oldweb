@@ -4,10 +4,10 @@ class ShopController < ApplicationController
   end
 
   def shops
-
-    @shops = Shop.active
-    @areas = Area.level1.active
     cache @shops,@areas do
+      @shops = Shop.active
+      @areas = Area.level1.active
+
       respond_to{ |format|
         format.kml{render kml: @shops }
         format.html
