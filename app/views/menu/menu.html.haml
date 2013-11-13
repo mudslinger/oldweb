@@ -1,9 +1,10 @@
 %strong{title: @menu.name}
   %div
     = image_tag64 "menu/logo/recomanded.gif", alt: "おすすめ！" unless @menu.push_priority.blank?
-  %div{style: "border-bottom:solid 1px #AAAAAA;margin-bottom:10px;padding-bottom:2px;font-size:24px;"}
+  %div#menu_name{style: "border-bottom:solid 1px #AAAAAA;margin-bottom:10px;padding-bottom:2px;font-size:24px;"}
     = image_tag64 "menu/logo/#{@menu.id}.jpg", alt: @menu.name
-    = #@menu.name
+    :coffeescript
+      document.write '#{@menu.name}' if $('#menu_name img').size() == 0
 %p
   = raw @menu.comment
 = image_tag64 "menu/photo/#{@menu.id}.jpg", :alt=> @menu.name

@@ -17,8 +17,12 @@ module ApplicationHelper
   def title(obj)
     key = "#{obj.controller_name}##{obj.action_name}"
     puts key
+    puts sitemap
     begin
-      sitemap[key][:title]
+      ret = sitemap[key][:title]
+      ret += " - #{@menu.name}" if @menu.present?
+      ret += " - #{@shop.name}" if @shop.present?
+      ret
     rescue
       ''
     end
