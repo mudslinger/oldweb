@@ -63,6 +63,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def force_plain
+s
+    if request.url.start_with?('https://') && Rails.env.production?
+      redirect_to protocol: 'http://', status: :moved_permanently
+    end
+  end
+
   #private
   def self.find_routes
     #ルートの一覧を取得

@@ -1,5 +1,8 @@
 class IrController < ApplicationController
-
+  # include ::SslRequirement
+  # ssl_required :send_message,:contact
+  force_ssl only: [:send_message,:contact]
+  before_filter :force_plain,expext: [:send_message,:contact]
   before_action :set_ir_message, only: [:contact,:send_message]
 
   anot :index , parent: 'top#index',title:'株主・投資家の皆様へ'
