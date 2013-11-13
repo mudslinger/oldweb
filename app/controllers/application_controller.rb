@@ -64,7 +64,6 @@ class ApplicationController < ActionController::Base
   end
 
   def force_plain
-s
     if request.url.start_with?('https://') && Rails.env.production?
       redirect_to protocol: 'http://', status: :moved_permanently
     end
