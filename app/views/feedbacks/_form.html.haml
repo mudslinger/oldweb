@@ -38,7 +38,7 @@
     %dt ご来店時の状況
     %dd
       =f.label :shop_id
-      =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.active.sorted,:shops, :name, :id, :name),include_blank: '----'
+      =f.select :shop_id,option_groups_from_collection_for_select(Area.level1.active.sorted,:shops, :name, :id, :name,selected_key = @feedback.shop_id),include_blank: '----'
       %button#search_shop{'data-return-id' => 'feedback_shop_id','data-href' => url_for(action: :search),:type => 'button',title:'位置情報を利用してお近くの店舗を検索します。'} お近くの店舗を検索
     %dd
       =f.label :visit_date
@@ -53,7 +53,7 @@
     %dt お食事・サービス等について
     %dd
       =f.label :menu_id
-      =f.select :menu_id,option_groups_from_collection_for_select(Genre.order_by_sort,:menus, :name, :id, :name),include_blank: '----'
+      =f.select :menu_id,option_groups_from_collection_for_select(Genre.order_by_sort,:menus, :name, :id, :name,selected_key = @feedback.menu_id),include_blank: '----'
 
     %dd.rdo
       =f.label :q

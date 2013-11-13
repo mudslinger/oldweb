@@ -7,7 +7,7 @@
 	public var down : Boolean;
 	
 	function Slider(){
-		this["loader"].loadMovie(_root._url.substring(0,_root._url.indexOf("/movies")) + "/images/"+imageName);
+		this["loader"].loadMovie(imageName);
 		this._x = 0 - this._width;
 	}
 
