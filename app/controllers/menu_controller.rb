@@ -16,6 +16,7 @@ class MenuController < ApplicationController
   }
   def menu
     @page = 0
+    params[:id] = nil if params[:id] == 'index'
     @page = params['page'].to_i if params['page'].present?
     @id = params['id'].to_i if params['id'].present?
     @id = Menu.heavy_lotation(@page) unless @id
