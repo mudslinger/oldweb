@@ -1,6 +1,6 @@
 class ShopController < ApplicationController
   before_filter :force_plain,except: [:shops]
-
+  layout 'blank', only: :mobile
   def shops
     @shops = Shop.active
     @areas = Area.level1.active
@@ -25,6 +25,13 @@ class ShopController < ApplicationController
     end
   }
   def shop
+    id = params[:id] if params[:id].present?
+    @shop = Shop.find(id) if id
+    area = @shop.areas.first if @shop.present?
+    @area_code = area.code if area.present?
+  end
+
+  def mobile
     id = params[:id] if params[:id].present?
     @shop = Shop.find(id) if id
     area = @shop.areas.first if @shop.present?

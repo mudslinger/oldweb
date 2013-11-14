@@ -87,11 +87,15 @@ Oldweb::Application.routes.draw do
   CompanyController.route_keys do |path,key|
     get path => key
   end
+
+  get '/shops(.:format)' => 'shop#shops'
+  get 'shop/m' => 'shop#mobile'
   ShopController.route_keys do |path,key|
     get path => key
   end
 
-  get '/shops(.:format)' => 'shop#shops'
+
+
 
   #Menu
   MenuController.route_keys do |path,key|

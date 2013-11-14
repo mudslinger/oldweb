@@ -1,0 +1,25 @@
+!!! XML
+!!! Mobile
+%html(xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja")
+  %head
+    %meta(http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8")
+    %meta{name:'description',content:@shop.name}
+    %meta{name: 'robots',content:"index,follow"}
+    %title
+      山岡家 #{@shop.name} 地図
+    :scss
+      body {
+        background-color:#ff0000;
+        color:#ffffff;
+      }
+    %body
+      %div
+        ラーメン山岡家 #{@shop.name}
+      %div
+        住所：〒 #{@shop.zip} #{@shop.address}
+      %hr
+      %div
+        電話番号：#{@shop.phone}
+      %hr
+      %div= raw @shop.static_map
+      %a{href:'http://bemss.jp/yamaokaya/cont107_001_001.php'} 戻る
