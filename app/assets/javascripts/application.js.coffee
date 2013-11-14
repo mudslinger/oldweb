@@ -1,13 +1,15 @@
 #= require jquery
 #= require jquery_ujs
-#= require_tree .
 ## require jquery.ticker
 #= require jquery.ui.resizable
 #= require jquery.ui.selectable
 #= require jquery.ui.dialog
+#= require swfobject
 #= require jquery.leanModal.min
 #= require jquery.ui.map.full.min
-#= require swfobject
+#= require_tree .
+
+
 
 $ ->
   $(".tab#recruit").find('img').attr('src',$('#stab').attr('src'))
