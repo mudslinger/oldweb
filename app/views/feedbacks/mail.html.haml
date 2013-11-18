@@ -48,7 +48,7 @@
         %td= body.name
       %tr
         %th 年齢
-        %td= age_opts.select{ |r| body.age == r[1]}.first.first
+        %td= age_opts.select{ |r| body.age == r[1]}.first.first unless body.age.nil?
       %tr
         %th 性別
         %td #{body.male ? '男性' : '女性' unless body.male.nil?}
