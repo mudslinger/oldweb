@@ -1,0 +1,19 @@
+- evals = ['非常に悪い','悪い','普通','良い','非常に良い']
+年齢: #{age_opts.select{ |r| self.age == r[1]}.first.first}
+性別: #{self.male ? '男性' : '女性' unless self.male.nil?}
+- if self.shop
+  店舗: #{self.shop.name}
+- if self.visit_date
+  来店日: #{fd(self.visit_date)}
+- if self.visit_time
+  時間帯: #{time_opts.select{ |r| self.visit_time == r[1]}.first.first}
+- if self.repetition
+  頻度: #{rep_opts.select{ |r| self.repetition == r[1]}.first.first}
+- if self.menu
+  メニュー: #{self.menu.name}(#{self.menu.price}円)
+評価_Q: #{evals[self.q+2]}
+評価_S: #{evals[self.s+2]}
+評価_C: #{evals[self.c+2]}
+評価_A: #{evals[self.a+2]}
+メッセージ: -
+#{self.message_i}

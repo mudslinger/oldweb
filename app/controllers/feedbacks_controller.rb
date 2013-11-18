@@ -19,18 +19,24 @@ class FeedbacksController < ApplicationController
   end
 
   def send_message
-    @feedback = Feedback.new(feedback_params)
+    begin
+      Feedback.transaction do
+        @feedback = Feedback.new(feedback_params)
+        if @feedback.save
+          #OPTIMIZE:メール送信はsidekiqに移行させるがとりあえず同期処理
+          #まだ送られていない案件をすべて送信する
 
-    if @feedback.save
-      #OPTIMIZE:メール送信はsidekiqに移行させるがとりあえず同期処理
-      #まだ送られていない案件をすべて送信する
-      Feedback.not_sent.each do |i|
-        i.report do |params|
-          render_to_string params
-        end unless i.reported?
+          Feedback.not_sent.each do |i|
+            i.report do |params|
+              render_to_string params
+            end unless i.reported?
+          end
+          redirect_to url_for(action: :index,format: :html),notice: "ご意見をいただき、まことにありがとうございます。今後も何かございましたら、是非ご意見をお寄せください。"
+        else
+          render action: :index,format: :html
+        end
       end
-      redirect_to url_for(action: :index,format: :html),notice: "ご意見をいただき、まことにありがとうございます。今後も何かございましたら、是非ご意見をお寄せください。"
-    else
+    rescue
       render action: :index,format: :html
     end
   end

@@ -19,7 +19,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 
@@ -48,12 +48,12 @@ gem 'user-agent'
 gem 'nokogiri'
 gem 'rest-client'
 gem 'aws-ses'
-gem 'compass'#, "~> 0.13.alpha.10"
-gem "compass-rails", "~> 2.0.alpha.0"
-gem 'jquery-ui-rails'
+gem 'compass'
+gem 'compass-rails', "~> 2.0.alpha.0"
 gem 'redis'
 gem 'redis-store'
 gem 'redis-rails'
 gem 'newrelic_rpm'
 gem 'unicorn'
 gem 'igo-ruby'
+gem 'fluent-logger'
