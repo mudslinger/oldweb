@@ -1,0 +1,21 @@
+!!! XML
+!!! Mobile
+%html(xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja")
+  %head
+    %meta(http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8")
+    :scss
+      a img {
+        border-style:none;
+      }
+      html {
+        overflow-y: scroll;
+      }
+      body{
+        background-color:#F00;
+        color:#FFF;
+      }
+      h1{
+        background-color:#FFF;
+        color:red;
+      }
+  %body= yield

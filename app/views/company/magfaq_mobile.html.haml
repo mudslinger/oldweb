@@ -1,0 +1,25 @@
+%h1= tx(:title)
+- tx(:lead).each do |v|
+  %p= v
+%p
+%li 以前(2013年8月以前)は届いていたのに、最近届かなくなった
+%li 登録したのに、メルマガが届かない
+%h2= tx('domain_specify.title')
+- choices = 'a'
+%p
+  =tx 'domain_specify.lead',{choices: choices}
+%p
+  メールアドレスを指定する「宛先指定受信」を行っていただくのがおすすめです。
+%p
+  - case request.mobile
+  - when Jpmobile::Mobile::Docomo
+    %a{href:'https://www.nttdocomo.co.jp/info/spam_mail/measure/domain/about/'}
+      受信／拒否設定とは
+  - when Jpmobile::Mobile::Au
+    %a{href:'http://www.au.kddi.com/support/mobile/trouble/forestalling/mail/anti-spam/fillter/function-03/'}
+      指定受信リスト設定 (なりすまし・転送メール許可)※おすすめ
+    %a{href:'http://www.au.kddi.com/support/mobile/trouble/forestalling/mail/anti-spam/fillter/function-11/'}
+      指定受信リスト設定
+  - when Jpmobile::Mobile::Softbank
+    %a{href: 'http://www.softbank.jp/mobile/support/antispam/settings/indivisual/whiteblack/'}
+      迷惑メールの個別設定をする

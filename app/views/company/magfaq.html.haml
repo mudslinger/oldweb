@@ -1,0 +1,46 @@
+%h1= tx(:title)
+- tx(:lead).each do |v|
+  %p= v
+%p
+  [従来]yamaokaya@k-crm.jp
+  [現在]mag@yamaokaya.com
+%li 以前(2013年8月以前)は届いていたのに、最近届かなくなった
+%li 登録したのに、メルマガが届かない
+%h2= tx('domain_specify.title')
+- choices = 'a'
+%p
+  =tx 'domain_specify.lead',{choices: choices}
+%p
+  メールアドレスを指定する「宛先指定受信」を行っていただくのがおすすめです。
+%p
+  - case request.mobile
+  - when Jpmobile::Mobile::Docomo
+    %a{href:'https://www.nttdocomo.co.jp/info/spam_mail/measure/domain/about/'}
+      受信／拒否設定とは
+  - when Jpmobile::Mobile::Au
+    %a{href:'http://www.au.kddi.com/support/mobile/trouble/forestalling/mail/anti-spam/fillter/function-03/'}
+      指定受信リスト設定 (なりすまし・転送メール許可)※おすすめ
+    %a{href:'http://www.au.kddi.com/support/mobile/trouble/forestalling/mail/anti-spam/fillter/function-11/'}
+      指定受信リスト設定
+  - when Jpmobile::Mobile::Softbank
+    %a{href: 'http://www.softbank.jp/mobile/support/antispam/settings/indivisual/whiteblack/'}
+      迷惑メールの個別設定をする
+%h2
+  URL付きメールの拒否設定の解除
+%p
+  お送りしているメールには、クーポンを表示するためのURLや、
+  配信の解除を行っていただくためのURLがメール本文内に含まれております。
+  したがって、お客様の端末で、URLが含まれたメールを拒否する設定になっている場合、弊社からのメールを受信いただくことができません。
+  お使いの端末の設定をご確認いただき、拒否する設定になっている場合は、設定の変更をお願い致します。
+
+  キャリア毎に設定方法が異なります。以下リンクより、お使いのキャリアの設定方法をご確認いただけます。
+  [DOCOMO]
+  %a{href:'https://www.nttdocomo.co.jp/info/spam_mail/measure/url/'}
+    URL付きメール拒否設定
+  [AU]
+  %a{href:'http://www.au.kddi.com/support/mobile/trouble/forestalling/mail/anti-spam/fillter/function-05/'}
+    URLリンク/HTMLメール規制
+  [ソフトバンク]
+  %a{href:'http://www.softbank.jp/mobile/support/antispam/settings/indivisual/antiurl/'}
+    迷惑メール設定をする（URLを含むメールの拒否）
+

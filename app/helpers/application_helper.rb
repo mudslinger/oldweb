@@ -141,4 +141,9 @@ module ApplicationHelper
     src << buffer.pack("m").gsub(/[\r\n]/,'')
     src
   end
+
+  def tx(key,attrs= {})
+    I18n.t(key,attrs,scope: [controller_name,action_name])
+  end
+
 end
