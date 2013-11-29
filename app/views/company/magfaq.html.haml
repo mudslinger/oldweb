@@ -1,17 +1,13 @@
 %h1= tx(:title)
 - tx(:lead).each do |v|
   %p= v
-%p
-  [従来]yamaokaya@k-crm.jp
-  [現在]mag@yamaokaya.com
-%li 以前(2013年8月以前)は届いていたのに、最近届かなくなった
-%li 登録したのに、メルマガが届かない
+
 %h2= tx('domain_specify.title')
-- choices = 'a'
-%p
-  =tx 'domain_specify.lead',{choices: choices}
-%p
-  メールアドレスを指定する「宛先指定受信」を行っていただくのがおすすめです。
+%p=tx 'domain_specify.lead'
+%ul
+  - (tx 'domain_specify.choices').each do |v|
+    %li= v
+%p= tx 'domain_specify.remarks'
 %p
   - case request.mobile
   - when Jpmobile::Mobile::Docomo
