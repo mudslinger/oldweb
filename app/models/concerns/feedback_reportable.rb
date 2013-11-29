@@ -16,8 +16,8 @@ module FeedbackReportable extend ActiveSupport::Concern
     )
 
     ses.send_email(
-      #to: 'customer_message@yamaokaya.co.jp',
-      to: 'tanaka@yamaokaya.com',
+      to: 'customer_message@yamaokaya.co.jp',
+      #to: 'tanaka@yamaokaya.com',
       source: 'info@yamaokaya.com',
       subject: sub + '(個人情報削除済み)',
       html_body: yield({type: :haml, locals: {body: self}, template: 'feedbacks/mask_mail',layout: 'blank'}),
