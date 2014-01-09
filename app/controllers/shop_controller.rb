@@ -26,7 +26,8 @@ class ShopController < ApplicationController
   }
   def shop
     id = params[:id] if params[:id].present?
-    @shop = Shop.find(id) if id
+    @shop = Shop.find_by(id: id) if id
+    @shop = Shop.find_by(new_id: id) unless @shop
     area = @shop.areas.first if @shop.present?
     @area_code = area.code if area.present?
   end
