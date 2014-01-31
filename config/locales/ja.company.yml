@@ -9,7 +9,7 @@ ja:
         - 今後とも本メルマガおよび、ラーメン山岡家をご愛顧のほど、よろしくお願い申し上げます。
       domain_specify:
         title: 宛先/ドメイン指定受信の設定
-        lead: お使いの端末の宛先/ドメイン指定受信設定に、以下のいずれかをご指定ください。
+        lead: お使いの端末の宛先/ドメイン指定受信設定に、mag@yamaokaya.comをご指定ください。
         choices:
           - mag@yamaokaya.com
           - yamaokaya.com

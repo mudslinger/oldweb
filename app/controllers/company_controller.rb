@@ -1,6 +1,6 @@
 class CompanyController < ApplicationController
   #TODO JPmobile関連有効にするときにコメントアウト
-  include Jpmobile::ViewSelector
+  # include Jpmobile::ViewSelector
   layout :mob_check,only: :magfaq
   hankaku_filter only: :magfaq
 
