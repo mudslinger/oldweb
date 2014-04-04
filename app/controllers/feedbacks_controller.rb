@@ -2,7 +2,7 @@ class FeedbacksController < ApplicationController
   #before_action :set_feedback, only: [:show, :edit, :update, :destroy]
   API_AUTH_KEY = 'ExThz6wX079RSstv258350G4rxLDy5Xo'
   force_ssl only: [:send_message,:index,:api]
-  before_filter :force_plain,except: [:send_message,:index,:search]
+  before_filter :force_plain,except: [:send_message,:index,:search,:api]
   before_filter :set_headers,only: [:api]
   around_filter :auth_api,only: [:api]
   layout 'blank', :only => :search
