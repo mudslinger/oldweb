@@ -1,9 +1,10 @@
 class FeedbacksController < ApplicationController
   #before_action :set_feedback, only: [:show, :edit, :update, :destroy]
-
+  API_AUTH_KEY = 'ExThz6wX079RSstv258350G4rxLDy5Xo'
   force_ssl only: [:send_message,:index]
   before_filter :force_plain,except: [:send_message,:index,:search]
-
+  before_filter :set_headers,only: [:api]
+  around_filter :auth_api,only: [:api]
   layout 'blank', :only => :search
   def search
     lat = params[:lat]
@@ -12,6 +13,13 @@ class FeedbacksController < ApplicationController
     puts '--------------------------------'
     puts params
     @shops = Shop.nearest(lat,lng,4)
+  end
+
+  def api
+    @feedback = set_feedback
+    respond_to{ |format|
+      format.json{render json: @feedback}
+    }
   end
 
   def index
@@ -37,6 +45,25 @@ class FeedbacksController < ApplicationController
   end
 
   private
+
+    def auth_api
+      if params['key'] == API_AUTH_KEY
+        yield
+      else
+        head :forbidden
+        return false
+      end
+    end
+
+    def set_headers
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Expose-Headers'] = "ETag"
+      headers['Access-Control-Allow-Methods'] = "GET"
+      headers['Access-Control-Allow-Headers'] = "HTTP_ORIGIN"
+      headers['Access-Control-Max-Age'] = "86400"
+      headers['Access-Control-Allow-Credentials'] = "true"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_feedback
       @feedback = Feedback.find(params[:id])
@@ -66,4 +93,5 @@ class FeedbacksController < ApplicationController
         :ip_addr
       )
     end
+
 end

@@ -124,7 +124,7 @@ Oldweb::Application.routes.draw do
   get 'feedbacks(.:format)' => 'feedbacks#index'
   post 'feedbacks(.:format)' => 'feedbacks#send_message'
   get 'feedbacks_search' => 'feedbacks#search'
-
+  get 'feedbacks/:id(.:format)' => 'feedbacks#api'
   #site
   SiteController.route_keys do |path,key|
     get path => key

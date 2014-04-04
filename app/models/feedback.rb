@@ -20,4 +20,11 @@ class Feedback < ActiveRecord::Base
       m.feature.include?('固有') ? '●●●' : m.surface
     }.join if t.present?
   end
+
+  def as_json options = {}
+    super(
+      only: [:id,:age,:male,:shop_id,:visit_date,:visit_time,:reputition,:menu_id,:q,:s,:c,:a],
+      methods: [:message_i,:shop,:menu]
+    )
+  end
 end

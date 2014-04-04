@@ -15,6 +15,11 @@ $(->
   else
     $('#search_shop').css('display','hidden')
 
-
-
+  if 0 < $('body.feedbacks').size()
+    console.log 'feedback'
+    sync = ->
+      $.getJSON 'https://yamaokaya1.sharepoint.com/_api/web/lists',(data)->
+        console.log data
+      console.log 'sync'
+    $('#sync').on 'click', sync
 )
