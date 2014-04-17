@@ -49,7 +49,8 @@ gem 'nokogiri'
 gem 'rest-client'
 gem 'aws-ses'
 gem 'compass'
-gem 'compass-rails'#, "~> 2.0.alpha.0"
+gem 'compass-rails'
+
 gem 'redis'
 gem 'redis-store'
 gem 'redis-rails'
