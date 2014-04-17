@@ -6,10 +6,9 @@ module RecruitReportSendable
   end
 
   def report
-    ses = AWS::SES::Base.new(access_key_id: SES_ID,secret_access_key: SES_KEY)
     to = ['saiyo@yamaokaya.com','tanaka@yamaokaya.com','sales-man@yamaokaya.com']
     to = to + [self.shop.mail_addrs[:sv],self.shop.mail_addrs[:group]] if self.work_style == 'パート・アルバイト'
-    ses.send_email(
+    SES.send_email(
       :to        => to,
       :source    => 'recruit@yamaokaya.com',
       :subject   => "求人応募メールNo.#{self.id} (店舗:#{self.shop.name})",

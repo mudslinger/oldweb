@@ -1,2 +1,4 @@
-SES_ID = 'AKIAI2Q5IAVIWTLA2SKA'
-SES_KEY = 'XHrUEtTzskp2Xa1ddfJgNQKL7JnQ9M7ndg7trvLe'
+SES = AWS::SES::Base.new(access_key_id: ENV["SES_KEY"],secret_access_key: ENV["SES_SECRET"])
+
+#SES.send_email(to:'hisato.tanaka@gmail.com',source:'info@yamaokaya.com',subject:'test',body:'test')
+

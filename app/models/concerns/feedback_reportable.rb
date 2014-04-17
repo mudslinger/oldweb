@@ -4,18 +4,17 @@ module FeedbackReportable extend ActiveSupport::Concern
     self.mail_sent
   end
   def report
-    ses = AWS::SES::Base.new(access_key_id: SES_ID,secret_access_key: SES_KEY)
     sub = "お客様よりメール #{self.shop.name}(No.#{self.id})" if self.shop
     sub = "お客様よりメール (No.#{self.id})" unless self.shop
     sub += '【要返信】' if self.reply
-    ses.send_email(
+    SES.send_email(
       to: 'info@yamaokaya.com',
       source: 'info@yamaokaya.com',
       subject: sub,
       html_body: yield({type: :haml, locals: {body: self}, template: 'feedbacks/mail',layout: 'blank'})
     )
 
-    ses.send_email(
+    SES.send_email(
       to: 'customer_message@yamaokaya.co.jp',
       #to: 'tanaka@yamaokaya.com',
       source: 'info@yamaokaya.com',
