@@ -7,5 +7,3 @@
 #   environment "RAILS_ENV" => env
 # end
 
-#environment "SES_KEY" => node[:deploy][:oldweb][:ses_key]
-#environment "SES_SECRET" => node[:deploy][:oldweb][:ses_secret]
