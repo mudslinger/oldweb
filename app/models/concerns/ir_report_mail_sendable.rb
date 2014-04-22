@@ -6,7 +6,7 @@ module IrReportMailSendable
   end
 
   def report
-    SES.send_email(
+    ::SES.send_email(
       :to        => 'ir@yamaokaya.com',
       :source    => 'info@yamaokaya.com',
       :subject   => "IR問い合わせメール(#{self.id})",

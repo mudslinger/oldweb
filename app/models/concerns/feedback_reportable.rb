@@ -7,14 +7,14 @@ module FeedbackReportable extend ActiveSupport::Concern
     sub = "お客様よりメール #{self.shop.name}(No.#{self.id})" if self.shop
     sub = "お客様よりメール (No.#{self.id})" unless self.shop
     sub += '【要返信】' if self.reply
-    SES.send_email(
+    ::SES.send_email(
       to: 'info@yamaokaya.com',
       source: 'info@yamaokaya.com',
       subject: sub,
       html_body: yield({type: :haml, locals: {body: self}, template: 'feedbacks/mail',layout: 'blank'})
     )
 
-    SES.send_email(
+    ::SES.send_email(
       to: 'customer_message@yamaokaya.co.jp',
       #to: 'tanaka@yamaokaya.com',
       source: 'info@yamaokaya.com',
