@@ -4,7 +4,7 @@ module FeedbackReportable extend ActiveSupport::Concern
     self.mail_sent
   end
   def report
-    ses = AWS::SES::Base.new(access_key_id: ENV["SES_KEY"],secret_access_key: ENV["SES_SECRET"])
+    ses = AWS::SES::Base.new(access_key_id: ENV[:ses_key],secret_access_key: ENV[:ses_secret])
 
     sub = "お客様よりメール #{self.shop.name}(No.#{self.id})" if self.shop
     sub = "お客様よりメール (No.#{self.id})" unless self.shop
