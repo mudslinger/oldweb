@@ -6,7 +6,7 @@ module RecruitReportSendable
   end
 
   def report
-    ses = AWS::SES::Base.new(access_key_id: ENV['ses_key'],secret_access_key: ENV['ses_secret'])
+    ses = AWS::SES::Base.new(access_key_id: ENV['SES_KEY'],secret_access_key: ENV['SES_SECRET'])
 
     to = ['saiyo@yamaokaya.com','tanaka@yamaokaya.com','sales-man@yamaokaya.com']
     to = to + [self.shop.mail_addrs[:sv],self.shop.mail_addrs[:group]] if self.work_style == 'パート・アルバイト'
