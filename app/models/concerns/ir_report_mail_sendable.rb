@@ -6,7 +6,9 @@ module IrReportMailSendable
   end
 
   def report
-    ::SES.send_email(
+    ses = AWS::SES::Base.new(access_key_id: ENV["SES_KEY"],secret_access_key: ENV["SES_SECRET"])
+
+    ses.send_email(
       :to        => 'ir@yamaokaya.com',
       :source    => 'info@yamaokaya.com',
       :subject   => "IR問い合わせメール(#{self.id})",
