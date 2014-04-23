@@ -5,5 +5,6 @@ node[:deploy].each do |application, deploy|
   deploy[:environment_variables].each do |key, value|
     Chef::Log.info("Setting ENV[#{key}] to #{value}")
     ENV[key] = value
+    Chef::Log.info("#{key}:#{ENV[key]}")
   end if deploy[:environment_variables]
 end
