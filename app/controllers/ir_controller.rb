@@ -16,7 +16,7 @@ class IrController < ApplicationController
   anot :infomation , parent: 'ir#index',title:'財務情報'
   def infomation
     @fdata = FINANCE_DATA
-    @dz = [16,17,18,19,20]
+    @dz = [17,18,19,20,21]
   end
 
   anot :business , parent: 'ir#index',title:'事業の概要'
@@ -538,6 +538,47 @@ class IrController < ApplicationController
         :b19 => 312560,
         :b20 => 260,
         :b20d=> 860
+      },
+      21 => {
+        :a01 => nil,
+        :a02 => nil,
+        :a03 => nil,
+        :a04 => nil,
+        :a05 => nil,
+        :a06 => nil,
+        :a07 => nil,
+        :a08 => nil,
+        :a09 => nil,
+        :a10 => nil,
+        :a11 => nil,
+        :a12 => nil,
+        :a13 => nil,
+        :a14 => nil,
+        :a15 => nil,
+        :a16 => nil,
+        :a16d=> nil,
+        :b01 => 8758519,
+        :b02 => 235662,
+        :b03 => -88128,
+        :b04 => 291647,
+        :b05 => 823000,
+        :b06 => 1132516,
+        :b07 => 4406269,
+        :b08 => 1387.36,
+        :b09 => 20,
+        :b09d=> nil,
+        :b10 => -108.63,
+        :b11 => nil,
+        :b12 => 25.5,
+        :b13 => nil,
+        :b14 => nil,
+        :b15 => nil,
+        :b16 => 613051,
+        :b17 => 12701,
+        :b18 => -620105,
+        :b19 => 318206,
+        :b20 => 225,
+        :b20d=> 845
       }
     }.freeze
 

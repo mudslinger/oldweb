@@ -30,9 +30,9 @@
   </dd>
   <dt>従業員数</dt>
   <dd>
-    1,921名(うち 正社員260名) （2013年1月31日現在）
+    1,688名(うち 正社員231名) （2014年1月31日現在）
   </dd>
-  <dt>役員（2013年4月25日現在）</dt>
+  <dt>役員（2014年4月24日現在）</dt>
   <dd>
     代表取締役社長 山岡 正
   </dd>
@@ -69,7 +69,7 @@
   </dd>
   <dt>年商</dt>
   <dd>
-    8,909百万円（平成25年 1月期）
+    8,758百万円（平成26年 1月期）
   </dd>
   <dt>売上・経常利益の推移</dt>
   <dd>
@@ -149,6 +149,14 @@
         </td>
     </tr>
 	<%i+=1%>
+    <tr>
+        <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
+        <td>
+          <div class="sales" style="width:<%=(@sales[i].quo(@sales.max())*95).to_i()%>%"><%=number_to_currency(@sales[i],:unit=>"",:precision=>0)%></div>
+          <div class="profit" style="width:<%=(@profits[i].quo(@profits.max())*95).to_i()%>%"><%=number_to_currency(@profits[i],:unit=>"",:precision=>0)%></div>
+        </td>
+    </tr>
+  <%i+=1%>
     <tr>
         <th abbr="H<%=16+i%>">平成<%=16+i%>年1月期</th>
         <td>

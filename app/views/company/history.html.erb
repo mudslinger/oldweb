@@ -150,7 +150,7 @@
     <td>秋田県の第1号店舗として秋田市に秋田仁井田店開店</td>
   </tr>
   <tr>
-    <th abbr="H23" rowspan="8">平成23年</th>
+    <th abbr="H23" rowspan="6">平成23年</th>
     <th abbr="7">4月</th>
     <td>札幌市に大阪王将北海道1号店として、大阪王将北9条店開店</td>
   </tr>
@@ -178,9 +178,17 @@
     <th abbr="12">12月</th>
     <td>
   	京都府の第1号店舗として、八幡市に京都八幡店開店<br />
-	福岡県の第1号店舗として、北九州市に北九州店開店
-  </td>
-</tr>
+    福岡県の第1号店舗として、北九州市に北九州店開店
+    </td>
+  </tr>
+  <tr>
+    <th abbr="H24" rowspan="2">平成24年</th>
+    <th abbr="10" rowspan="2">10月</th>
+    <td>熊本県の第一号店舗として、熊本市に熊本店開店</td>
+  </tr>
+  <tr>
+    <td>つくば市にコメダ珈琲店茨城県の第一号店舗として、「コメダ珈琲店 つくば店」開店</td>
+  </tr>
 </table>
 <h1 class="sd">店舗数の変遷</h1>
 <%i=0%>
@@ -316,6 +324,22 @@
       <th abbr="H<%=9+i%>">平成<%=9+i%>年</th>
       <td>
         <div class="shop-a" style="float:left;width:<%=(@shop_a[i].quo(@shop_ttl.max())*83).to_i()%>%;"> </div>
+        <div class="total">計<%=@shop_ttl[i]%>店</div>
+        <%i+=1%>
+      </td>
+  </tr>
+  <tr>
+      <th abbr="H<%=9+i%>">平成<%=9+i%>年</th>
+      <td>
+        <div class="shop-a" style="float:left;width:<%=(@shop_a[i].quo(@shop_ttl.max())*83).to_i()%>%;"> </div>
+        <div class="total">計<%=@shop_ttl[i]%>店</div>
+        <%i+=1%>
+      </td>
+  </tr>
+  <tr>
+      <th abbr="H<%=9+i%>">平成<%=9+i%>年</th>
+      <td>
+        <div class="shop-a" style="float:left;width:<%=(@shop_a[i].quo(@shop_ttl.max())*83).to_i()%>%;"> ※予定</div>
         <div class="total">計<%=@shop_ttl[i]%>店</div>
         <%i+=1%>
       </td>
