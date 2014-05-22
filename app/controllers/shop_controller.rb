@@ -28,6 +28,7 @@ class ShopController < ApplicationController
     id = params[:id] if params[:id].present?
     @shop = Shop.find_by(id: id) if id
     @shop = Shop.find_by(new_id: id) unless @shop
+    puts "店舗名・・・・#{@shop}"    
     area = @shop.areas.first if @shop.present?
     @area_code = area.code if area.present?
   end

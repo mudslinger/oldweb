@@ -17,7 +17,6 @@ module ApplicationHelper
   def title(obj)
     key = "#{obj.controller_name}##{obj.action_name}"
     puts key
-    puts sitemap
     begin
       ret = sitemap[key][:title]
       ret += " - #{@menu.name}" if @menu.present?
