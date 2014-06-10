@@ -10,7 +10,7 @@ module FeedbackReportable extend ActiveSupport::Concern
     sub += '【要返信】' if self.reply
     OLDWEB::SES.send_email(
       to: 'info@yamaokaya.com',
-      source: 'info@yamaokaya.com',
+      source: 'kokyaku@yamaokaya.com',
       subject: sub,
       html_body: yield({type: :haml, locals: {body: self}, template: 'feedbacks/mail',layout: 'blank'})
     )
@@ -18,7 +18,7 @@ module FeedbackReportable extend ActiveSupport::Concern
     OLDWEB::SES.send_email(
       to: 'customer_message@yamaokaya.co.jp',
       #to: 'tanaka@yamaokaya.com',
-      source: 'info@yamaokaya.com',
+      source: 'kokyaku@yamaokaya.com',
       subject: sub + '(個人情報削除済み)',
       html_body: yield({type: :haml, locals: {body: self}, template: 'feedbacks/mask_mail',layout: 'blank'}),
       text_body: yield({type: :erb, locals: {body: self},formats: :text, template: 'feedbacks/mask_mail_txt',layout: 'blank'})
