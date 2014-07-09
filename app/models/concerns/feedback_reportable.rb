@@ -16,7 +16,7 @@ module FeedbackReportable extend ActiveSupport::Concern
     )
 
     OLDWEB::SES.send_email(
-      to: 'customer_message@yamaokaya.co.jp',
+      to: 'customer_message@yamaokaya.com',
       #to: 'tanaka@yamaokaya.com',
       source: 'kokyaku@yamaokaya.com',
       subject: sub + '(個人情報削除済み)',
