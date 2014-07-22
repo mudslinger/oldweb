@@ -55,8 +55,8 @@ Oldweb::Application.configure do
   #config.cache_store = :memory_store
   config.cache_store =
     :redis_store,
-    "redis://yamapp-redis.gneihq.0001.apne1.cache.amazonaws.com/oldweb/production/cache",
-    { expires_in: 158.minutes }
+    "redis://yam-redis.gneihq.0001.apne1.cache.amazonaws.com/development/cache",
+    { expires_in: 15.minutes }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"

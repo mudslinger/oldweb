@@ -6,3 +6,4 @@ module OLDWEB
   	secret_access_key: AWS_CREDENTIALS['secret_access_key']
   )
 end
+
